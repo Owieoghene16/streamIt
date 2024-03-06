@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import {View, Text, Image, ScrollView, TextInput, StyleSheet, Button} from 'react-native';
+import { 
+  View, Text, Image, ScrollView, TextInput, StyleSheet, Button
+} from 'react-native';
 
 const App = () => {
   const [name, setName] = useState('');
@@ -16,6 +18,17 @@ const App = () => {
         <Text>The name are below: DOWN</Text>
         <Text>1. {name}</Text>
         <Text>2. {text}</Text>
+        <Image
+          source={{
+            uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
+          }}
+          style={{width: 200, height: 200}}
+        />
+        <TextInput 
+          style={styles.input} 
+          placeholder="You can type in me"
+          onChangeText={(val) => setText(val)}
+        />
       </View>
       <View style={styles.container}>
         <Button title='Change Name' onPress={changeName} />
