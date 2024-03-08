@@ -88,8 +88,7 @@ const ShopScreen = ({navigation}) => {
               <Text style={styles.next}>2</Text>
               <Text style={styles.next}>3</Text>
               <Text style={styles.next}>4</Text>
-              <Text style={styles.next}>5</Text>
-              <MaterialIcons name="navigate-next" size={35} style={styles.next} color="white" />
+              <Ionicons name="chevron-forward" size={24} style={styles.next} color="white" />
             </View>
           </View>
         </ScrollView>
