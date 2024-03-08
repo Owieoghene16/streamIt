@@ -124,7 +124,7 @@ const HomeScreen = ({ navigation }) => {
                         </View>
                       </View>
                       <View style={styles.videoNameHead}>
-                        <Text style={styles.videoName}>Video Name</Text>
+                        <Text numberOfLines={1} ellipsizeMode='tail' style={styles.videoName}>Video Name</Text>
                       </View>
                       <View style={styles.info}>
                         <Pressable style={styles.infoButton}>
@@ -321,6 +321,7 @@ const styles = StyleSheet.create({
   videoNameHead: {
     width: '100%',
     paddingVertical: 8,
+    overflow: 'hidden',
   },
   videoName: {
     fontSize: 24,
