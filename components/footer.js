@@ -9,25 +9,25 @@ const Footer = ({ navigation }) => {
   return (
     <>
         <View style={styles.navDiv}>
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('shop')}>
+          <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
             <View style={styles.navItem}>
               <FontAwesome name="home" size={24} color="skyblue" />
               <Text style={{color: 'skyblue'}}>Home</Text>
             </View>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('shop')}>
+          <TouchableWithoutFeedback onPress={() => navigation.navigate('Shop')}>
             <View style={styles.navItem}>
               <FontAwesome5 name="shopify" size={24} color="skyblue" />
               <Text style={{color: 'skyblue'}}>Shop</Text>
             </View>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('shop')}>
+          <TouchableWithoutFeedback onPress={() => navigation.navigate('Shop')}>
             <View style={styles.navItem}>
               <Entypo name="folder-video" size={24} color="skyblue" />
               <Text style={{color: 'skyblue'}}>Video</Text>
             </View>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('shop')}>
+          <TouchableWithoutFeedback onPress={() => navigation.navigate('Shop')}>
             <View style={styles.navItem}>
               <MaterialIcons name="admin-panel-settings" size={24} color="skyblue" />
               <Text style={{color: 'skyblue'}}>Profile</Text>
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     width: 60,
     alignItems: 'center',
+    fontFamily: 'monospace',
     backgroundColor: '#cce7d0',
   },
 });
