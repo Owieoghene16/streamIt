@@ -1,65 +1,32 @@
 import React, { useState } from 'react';
-import { 
-  View, Text, Image, ScrollView, TextInput, StyleSheet, Button
-} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './screen/home';
+import ShopScreen from './screen/shop';
+import ShopDetails from './screen/shopdetails';
 
+const Stack = createNativeStackNavigator();
 const App = () => {
-  const [name, setName] = useState('');
-  const [text, setText] = useState('');
-  const changeName = () => {
-    const newName = ['silas', 'doyin', 'kindness', 'owie', 'nicolas'];
-    const index = Math.floor(Math.random() * newName.length);
-    setName(newName[index]);
-  };
-
   return (
-    <ScrollView style={styles.ScrollView}>
-      <View style={styles.main}>
-        <Text>The name are below: DOWN</Text>
-        <Text>1. {name}</Text>
-        <Text>2. {text}</Text>
-        <Image
-          source={{
-            uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-          }}
-          style={{width: 200, height: 200}}
-        />
-        <TextInput 
-          style={styles.input} 
-          placeholder="You can type in me"
-          onChangeText={(val) => setText(val)}
-        />
-      </View>
-      <View style={styles.container}>
-        <Button title='Change Name' onPress={changeName} />
-      </View>
-    </ScrollView>
+    <NavigationContainer>
+      <Stack.Navigator 
+        initialRouteName="Home"
+        screenOptions={{
+          headerShown: false
+        }}
+      >
+        <Stack.Screen name="Home">
+          {(props) => <HomeScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Shop">
+          {(props) => <ShopScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="ShopDetails">
+          {(props) => <ShopDetails {...props} />}
+        </Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  ScrollView: {
-    marginTop: 100,
-  },
-  main: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  container: {
-    width: 300,
-    height: 200,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  input: {
-    width: 300,
-    height: 40,
-    paddingLeft: 10,
-    borderColor: 'gray',
-    borderWidth: 1,
-  }
-})
 
 export default App;
