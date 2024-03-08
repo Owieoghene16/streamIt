@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
   },
   productName: {
     fontSize: 20,
+    fontWeight: 'bold',
   }
 });
 
