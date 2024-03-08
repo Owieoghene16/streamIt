@@ -6,7 +6,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import Footer from '../components/footer';
-import { StyleSheet, View, Text, Image, StatusBar, Pressable, SafeAreaView, Button, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, Image, StatusBar, Pressable, SafeAreaView, Button, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
   const [data, setData] = useState([
@@ -20,6 +20,8 @@ const HomeScreen = ({ navigation }) => {
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/dqK9Hag1054tghRQSqLSfrkvQnA.jpg', key: 1 },
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg', key: 2 },
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/s9YTxwaByYeoSqugYjJJtZjMRAG.jpg', key: 3 },
+    { imageUrl: 'https://image.tmdb.org/t/p/w1280/oBIQDKcqNxKckjugtmzpIIOgoc4.jpg', key: 4 },
+    { imageUrl: 'https://image.tmdb.org/t/p/w1280/fCwwzOziFYs7YRwP4gbrb9qH1xg.jpg', key: 5 },
   ]);
   
   return (
@@ -31,7 +33,12 @@ const HomeScreen = ({ navigation }) => {
         </View>
         <View>
           <Pressable>
-            <Feather name="menu" size={32} color="white" />
+              <Image
+                source={{
+                  uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
+                }}
+                style={{width: 45, height: 45, borderRadius: 25}}
+              />
           </Pressable>
         </View>
       </View>
@@ -67,6 +74,7 @@ const HomeScreen = ({ navigation }) => {
                 showsHorizontalScrollIndicator={true}
                 data={data}
                 renderItem={(item) => (
+                  <TouchableOpacity  onPress={() => navigation.navigate('shopdetails')}>
                   <View style={styles.secondHeader}>
                     <Image
                       source={{
@@ -75,7 +83,7 @@ const HomeScreen = ({ navigation }) => {
                       style={{width: '100%', height: 170, borderRadius: 20, textAlign: 'center',}}
                     />
                     <View style={styles.metrics}>
-                      <Text style={styles.metricsName}>Food Name</Text>
+                      <Text numberOfLines={1} ellipsizeMode='tail' style={styles.metricsName}>Food Name</Text>
                     </View>
                     <View style={styles.rating}>
                       <Text style={styles.metricsPrice}>20,000</Text>
@@ -89,6 +97,7 @@ const HomeScreen = ({ navigation }) => {
                       <Entypo name="shopping-cart" size={24} color="green" style={styles.cart} />
                     </View>
                   </View>
+                  </TouchableOpacity>
                 )}
               />
             </View>
@@ -144,6 +153,12 @@ const HomeScreen = ({ navigation }) => {
                   </View>
                 )}
               />
+            </View>
+          </View>
+          <View style={styles.firstRow}>
+            <View style={styles.firstHeader}>
+              <Text style={styles.mainText}>Saved</Text>
+              <Entypo name="arrow-long-right" size={24} color="white" />
             </View>
           </View>
         </ScrollView>

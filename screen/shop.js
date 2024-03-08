@@ -10,43 +10,9 @@ import { StyleSheet, View, Text, Image, StatusBar, TouchableWithoutFeedback, Saf
 const ShopScreen = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
-    <View style={styles.header}>
       <View>
-        <Text style={styles.headerLogo}>Owie's PLace</Text>
+        <Text>WElcome</Text>
       </View>
-      <View>
-        <Pressable>
-          <Feather name="menu" size={32} color="white" />
-        </Pressable>
-      </View>
-    </View>
-    <View style={styles.container}>
-      <StatusBar
-        animated={true}
-        backgroundColor="skyblue"
-        barStyle='default'
-        showHideTransition='slide'
-        hidden={false} 
-      />
-      <ScrollView> 
-        <View style={styles.main}>
-          <View style={styles.mainAds}>
-            <Image
-              source={{
-                uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-              }}
-              style={{width: 250, height: 200}}
-            />
-          </View>
-        </View>
-        <View style={styles.firstRow}>
-          <View style={styles.firstHeader}>
-            <Text style={styles.mainText}>Best Deals</Text>
-            <Entypo name="arrow-long-right" size={24} color="white" />
-          </View>
-        </View>
-      </ScrollView>
-    </View>
     </SafeAreaView>
   );
 };
