@@ -65,8 +65,173 @@ const VideoScreen = ({ navigation }) => {
           </View>
           <View style={styles.firstRow}>
             <View style={styles.firstHeader}>
+              <Text style={styles.mainText}>Trending</Text>
+              <Entypo name="arrow-down" size={24} color="white" />
+            </View>
+          </View>
+          <View style={styles.thirdRow}>
+            <View style={styles.thirdDiv}>
+              <FlatList 
+                horizontal
+                showsHorizontalScrollIndicator={true}
+                data={movies}
+                renderItem={({item}) => (
+                  <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
+                  <View style={styles.videoCont}>
+                    <Image
+                      source={{
+                        uri: item?.imageUrl,
+                      }}
+                      style={{width: '100%', height: "100%", borderRadius: 20}}
+                    />
+                    <View style={styles.videoHead}>
+                      <View style={styles.videoFirst}>
+                        <View style={styles.videoHeadLeft}>
+                          <FontAwesome name="play" size={24} color="black" style={styles.videoIconTwo} />
+                          <AntDesign name="like2" size={24} color="skyblue" style={styles.videoIcon} />
+                        </View>
+                        <View style={styles.videoHeadRight}>
+                          <Entypo name="chevron-thin-down" size={24} color="skyblue" style={styles.videoIcon} />
+                        </View>
+                      </View>
+                      <View style={styles.videoNameHead}>
+                        <Text numberOfLines={1} ellipsizeMode='tail' style={styles.videoName}>Video Name</Text>
+                      </View>
+                      <View style={styles.info}>
+                        <Pressable style={styles.infoButton}>
+                          <Text style={styles.infoButtonText}>18+</Text>
+                        </Pressable>
+                        <Text style={styles.infoName}>4 season</Text>
+                        <Pressable style={styles.infoButton}>
+                          <Text style={styles.infoButtonText}>HD</Text>
+                        </Pressable>
+                      </View>
+                      <View style={styles.type}>
+                        <Text style={styles.typeName}>Scifi</Text>
+                        <Text style={styles.typeName}>Action</Text>
+                        <Text style={styles.typeName}>Adventure</Text>
+                      </View>
+                    </View>
+                  </View>
+                  </TouchableOpacity>
+                )}
+              />
+            </View>
+          </View>
+          <View style={styles.firstRow}>
+            <View style={styles.firstHeader}>
               <Text style={styles.mainText}>Top Videos</Text>
-              <Entypo name="arrow-long-right" size={24} color="white" />
+              <Entypo name="arrow-down" size={24} color="white" />
+            </View>
+          </View>
+          <View style={styles.thirdRow}>
+            <View style={styles.thirdDiv}>
+              <FlatList 
+                horizontal
+                showsHorizontalScrollIndicator={true}
+                data={movies}
+                renderItem={({item}) => (
+                  <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
+                  <View style={styles.videoCont}>
+                    <Image
+                      source={{
+                        uri: item?.imageUrl,
+                      }}
+                      style={{width: '100%', height: "100%", borderRadius: 20}}
+                    />
+                    <View style={styles.videoHead}>
+                      <View style={styles.videoFirst}>
+                        <View style={styles.videoHeadLeft}>
+                          <FontAwesome name="play" size={24} color="black" style={styles.videoIconTwo} />
+                          <AntDesign name="like2" size={24} color="skyblue" style={styles.videoIcon} />
+                        </View>
+                        <View style={styles.videoHeadRight}>
+                          <Entypo name="chevron-thin-down" size={24} color="skyblue" style={styles.videoIcon} />
+                        </View>
+                      </View>
+                      <View style={styles.videoNameHead}>
+                        <Text numberOfLines={1} ellipsizeMode='tail' style={styles.videoName}>Video Name</Text>
+                      </View>
+                      <View style={styles.info}>
+                        <Pressable style={styles.infoButton}>
+                          <Text style={styles.infoButtonText}>18+</Text>
+                        </Pressable>
+                        <Text style={styles.infoName}>4 season</Text>
+                        <Pressable style={styles.infoButton}>
+                          <Text style={styles.infoButtonText}>HD</Text>
+                        </Pressable>
+                      </View>
+                      <View style={styles.type}>
+                        <Text style={styles.typeName}>Scifi</Text>
+                        <Text style={styles.typeName}>Action</Text>
+                        <Text style={styles.typeName}>Adventure</Text>
+                      </View>
+                    </View>
+                  </View>
+                  </TouchableOpacity>
+                )}
+              />
+            </View>
+          </View>
+          <View style={styles.firstRow}>
+            <View style={styles.firstHeader}>
+              <Text style={styles.mainText}>Sitcom</Text>
+              <Entypo name="arrow-down" size={24} color="white" />
+            </View>
+          </View>
+          <View style={styles.thirdRow}>
+            <View style={styles.thirdDiv}>
+              <FlatList 
+                horizontal
+                showsHorizontalScrollIndicator={true}
+                data={movies}
+                renderItem={({item}) => (
+                  <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
+                  <View style={styles.videoCont}>
+                    <Image
+                      source={{
+                        uri: item?.imageUrl,
+                      }}
+                      style={{width: '100%', height: "100%", borderRadius: 20}}
+                    />
+                    <View style={styles.videoHead}>
+                      <View style={styles.videoFirst}>
+                        <View style={styles.videoHeadLeft}>
+                          <FontAwesome name="play" size={24} color="black" style={styles.videoIconTwo} />
+                          <AntDesign name="like2" size={24} color="skyblue" style={styles.videoIcon} />
+                        </View>
+                        <View style={styles.videoHeadRight}>
+                          <Entypo name="chevron-thin-down" size={24} color="skyblue" style={styles.videoIcon} />
+                        </View>
+                      </View>
+                      <View style={styles.videoNameHead}>
+                        <Text numberOfLines={1} ellipsizeMode='tail' style={styles.videoName}>Video Name</Text>
+                      </View>
+                      <View style={styles.info}>
+                        <Pressable style={styles.infoButton}>
+                          <Text style={styles.infoButtonText}>18+</Text>
+                        </Pressable>
+                        <Text style={styles.infoName}>4 season</Text>
+                        <Pressable style={styles.infoButton}>
+                          <Text style={styles.infoButtonText}>HD</Text>
+                        </Pressable>
+                      </View>
+                      <View style={styles.type}>
+                        <Text style={styles.typeName}>Scifi</Text>
+                        <Text style={styles.typeName}>Action</Text>
+                        <Text style={styles.typeName}>Adventure</Text>
+                      </View>
+                    </View>
+                  </View>
+                  </TouchableOpacity>
+                )}
+              />
+            </View>
+          </View>
+          <View style={styles.firstRow}>
+            <View style={styles.firstHeader}>
+              <Text style={styles.mainText}>Kids</Text>
+              <Entypo name="arrow-down" size={24} color="white" />
             </View>
           </View>
           <View style={styles.thirdRow}>

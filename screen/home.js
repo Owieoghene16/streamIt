@@ -36,7 +36,7 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.headerLogo}>Owie's PLace</Text>
         </View>
         <View>
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate('Profile')}>
               <Image
                 source={{
                   uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
