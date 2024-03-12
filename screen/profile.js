@@ -5,29 +5,12 @@ import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import Footer from '../components/footer';
 import { StyleSheet, View, Text, Image, StatusBar, Pressable, SafeAreaView, Button, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 
 const ProfileScreen = ({ navigation }) => {
-  const [data, setData] = useState([
-    { text: 'Wake up early', key: 1 },
-    { text: 'Come to the office', key: 2 },
-    { text: 'Drive back home', key: 3 },
-    { text: 'Eat well', key: 4 },
-    { text: 'Code well', key: 5 },
-  ]);
-  const [movies, setMovies] = useState([
-    { imageUrl: 'https://image.tmdb.org/t/p/w1280/dqK9Hag1054tghRQSqLSfrkvQnA.jpg', key: 1 },
-    { imageUrl: 'https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg', key: 2 },
-    { imageUrl: 'https://image.tmdb.org/t/p/w1280/s9YTxwaByYeoSqugYjJJtZjMRAG.jpg', key: 3 },
-    { imageUrl: 'https://image.tmdb.org/t/p/w1280/oBIQDKcqNxKckjugtmzpIIOgoc4.jpg', key: 4 },
-    { imageUrl: 'https://image.tmdb.org/t/p/w500/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg', key: 5 },
-    { imageUrl: 'https://image.tmdb.org/t/p/w1280/feSiISwgEpVzR1v3zv2n2AU4ANJ.jpg', key: 6 },
-    { imageUrl: 'https://image.tmdb.org/t/p/w1280/3Kzc6V4MWs3RXCmE5DhAYnfWL8F.jpg', key: 7 },
-    { imageUrl: 'https://image.tmdb.org/t/p/w1280/ehumsuIBbgAe1hg343oszCLrAfI.jpg', key: 8 },
-  ]);
-  
   return (
     <>
       <SafeAreaView style={{flex: 1}}>
@@ -57,6 +40,75 @@ const ProfileScreen = ({ navigation }) => {
         />
         <ScrollView> 
           <View style={styles.main}>
+            <View style={styles.photoHeader}>
+              <View style={styles.photoHeaderPic}>
+                <Image
+                  source={{
+                    uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
+                  }}
+                  style={{width: 200, height: 200, borderRadius: 100, objectFit: 'cover'}}
+                />
+              </View>
+              <View style={styles.joined}>
+                <Text style={{fontSize: 20, color: 'grey'}}>Joined</Text>
+                <Text style={{fontSize: 18, color: '#111', fontWeight: 'bold'}}>1 year ago</Text>
+              </View>
+            </View>
+            <View style={styles.profileName}>
+              <Text style={styles.firstName}>David</Text>
+              <Text style={styles.lastName}>Robinson</Text>
+            </View>
+            <View style={styles.profileHeader}>
+              <Text style={styles.profileHeaderName}>Profile</Text>
+            </View>
+            <View style={styles.manageAccount}>
+              <Pressable onPress={() => navigation.navigate('Profile')}>
+                <View style={styles.manage}>
+                  <View style={styles.manageIcon}>
+                    <View>
+                      <MaterialIcons name="account-circle" size={24} color="skyblue" style={styles.manageIconPic} />
+                      <Text style={styles.notificationBellTwo}>!</Text>
+                    </View>
+                    <Text style={{fontSize: 18, fontWeight: 'bold'}}>Manage Account</Text>
+                  </View>
+                  <MaterialIcons name="navigate-next" size={24} color="black" />
+                </View>
+              </Pressable>
+            </View>
+            <View style={styles.profileHeader}>
+              <Text style={styles.profileHeaderName}>Settings</Text>
+            </View>
+            <View style={styles.manageAccount}>
+              <Pressable onPress={() => navigation.navigate('Profile')}>
+                <View style={styles.manage}>
+                  <View style={styles.manageIcon}>
+                    <View>
+                      <Ionicons name="notifications" size={24} color="skyblue" style={styles.manageIconPic} />
+                      <Text style={styles.notificationBellTwo}>1</Text>
+                    </View>
+                    <Text style={{fontSize: 18, fontWeight: 'bold'}}>Notifications</Text>
+                  </View>
+                  <MaterialIcons name="navigate-next" size={24} color="black" />
+                </View>
+              </Pressable>
+            </View>
+            <View style={styles.manageAccount}>
+              <Pressable onPress={() => navigation.navigate('Profile')}>
+                <View style={styles.manage}>
+                  <View style={styles.manageIcon}>
+                    <MaterialIcons name="light-mode" size={24} color="skyblue" style={styles.manageIconPic} />
+                    <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',}}>
+                      <Text style={{fontSize: 18, fontWeight: 'bold'}}>Apperance</Text>
+                      <Text style={{fontSize: 12, fontWeight: 'bold', color: 'grey'}}>System</Text>
+                    </View>
+                  </View>
+                  <MaterialIcons name="navigate-next" size={24} color="black" />
+                </View>
+              </Pressable>
+            </View>
+            <View style={styles.signOut}>
+              <Text style={styles.signOutText}>Sign Out</Text>
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -99,68 +151,122 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   notificationBell: {
-    position: 'absolute', /* Overlaps the bell icon */
-    top: -5, /* Adjust position from the top */
-    right: -5, /* Adjust position from the right */
+    position: 'absolute',
+    top: -5,
+    right: -5,
     borderRadius: 20,
     width: 20,
     height: 20,
     lineHeight: 20,
     zIndex: 10,
-    backgroundColor: '#cce7d0', /* Adjust background color */
-    color: 'white', /* Adjust text color */
-    fontSize: 12, /* Adjust font size for number */
-    textAlign: 'center', /* Center the number inside the badge */
+    backgroundColor: '#cce7d0',
+    color: 'white', 
+    fontSize: 12,
+    textAlign: 'center',
+  },
+  notificationBellTwo: {
+    position: 'absolute',
+    top: -5,
+    right: -5,
+    borderRadius: 20,
+    width: 20,
+    height: 20,
+    lineHeight: 20,
+    zIndex: 10,
+    backgroundColor: 'orange',
+    color: 'white', 
+    fontSize: 12,
+    textAlign: 'center',
   },
   main: {
-    width: '100%',
-    justifyContent: 'center',
-  },
-  mainAds: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    paddingVertical: 20,
-  },
-  firstRow: {
+    paddingHorizontal: 15,
     width: '100%',
   },
-  firstHeader: {
-    backgroundColor: 'skyblue',
-    height: 35,
-    paddingHorizontal: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  mainText: {
-    color: 'white',
-  },
-  secondRow: {
-    width: '100%',
-    marginVertical: 15,
-  },
-  secondDiv: {
-    display: 'flex',
+  photoHeader: {
     flexDirection: 'row',
     justifyContent:'space-between',
     alignItems: 'center',
-    overflowX: 'scroll',
+    height: 250,
+    width: '100%',
   },
-  secondHeader: {
+  photoHeaderPic: {
+    width: '60%',
+  },
+  joined: {
+    width: '35%',
+    height: '100%',
     justifyContent: 'center',
-    position: 'relative',
-    boxSizing: 'border-box',
+  },
+  profileName: {
+    width: '100%',
+    flexDirection: 'row',
+    gap: 10,
+  },
+  lastName: {
+    fontSize: 35,
+    fontWeight: 'bold',
+    letterSpacing: 1,
+    color: '#666',
+  },
+  firstName: {
+    fontSize: 35,
+    fontWeight: 'bold',
+    color: '#111',
+    letterSpacing: 1,
+  },
+  profileHeader: {
+    marginTop: 20,
+  },
+  profileHeaderName: {
+    fontSize: 23,
+    fontWeight: 'bold',
+    color: '#111',
+  },
+  manageAccount: {
+    marginTop: 10,
+    width: '100%',
+  },
+  manage: {
+    flexDirection: 'row',
+    justifyContent:'space-between',
+    alignItems: 'center',
+    width: '100%',
+    backgroundColor: 'skyblue',
+    borderWidth: 0.5,
     borderColor: 'skyblue',
-    paddingHorizontal: 7,
-    paddingVertical: 6,
-    borderRadius: 25,
-    borderWidth: 1,
-    width: 170,
-    marginLeft: 3,
-    marginRight: 12,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 50,
+  },
+  manageIcon: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 10,
+    justifyContent:'space-between',
+    alignItems: 'center',
+  },
+  manageIconPic: {
+    width: 50,
+    height: 50,
+    lineHeight: 50,
+    backgroundColor: '#cce7d0',
+    borderRadius: 50,
+    textAlign: 'center',
+  },
+  signOut: {
+    marginVertical: 40,
+  },
+  signOutText: {
+    width: 150,
+    height: 60,
+    lineHeight: 60,
+    backgroundColor: 'skyblue',
+    borderRadius: 50,
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#111',
   },
 });
-
 
 export default ProfileScreen;
