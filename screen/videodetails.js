@@ -39,6 +39,23 @@ const VideoDetails = ({navigation}) => {
           hidden={false} 
         />
         <ScrollView> 
+          <View style={styles.main}>
+            <View style={styles.videoShow}>
+              <View style={styles.secondHeader}>
+                <Image
+                  source={{
+                    uri: 'https://image.tmdb.org/t/p/w1280/meyhnvssZOPPjud4F1CjOb4snET.jpg',
+                  }}
+                  style={{width: '100%', height: '100%', borderRadius: 20}}
+                />
+              </View>
+            </View>
+            <View style={styles.productContent}>
+              <View style={styles.productNameHeader}>
+                <Text style={styles.videoName}>Video Name</Text>
+              </View>
+            </View>
+          </View>
         </ScrollView>
       </View>
       {/* Bottom Navbar */}
@@ -103,12 +120,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     cursor: 'pointer',
   },
-  headerLogo: {
-    textAlign: 'center',
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
   input: {
     width: '100%',
     height: 50,
@@ -119,23 +130,35 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 12,
   },
-  main: {
-    width: '100%',
-  },
   notificationBell: {
-    position: 'absolute', /* Overlaps the bell icon */
-    top: -5, /* Adjust position from the top */
-    right: -5, /* Adjust position from the right */
+    position: 'absolute', 
+    top: -5,
+    right: -5, 
     borderRadius: 20,
     width: 20,
     height: 20,
     lineHeight: 20,
     zIndex: 10,
-    backgroundColor: '#cce7d0', /* Adjust background color */
-    color: 'white', /* Adjust text color */
-    fontSize: 12, /* Adjust font size for number */
-    textAlign: 'center', /* Center the number inside the badge */
-  }
+    backgroundColor: '#cce7d0',
+    color: 'white',
+    fontSize: 12, 
+    textAlign: 'center',
+  },
+  main: {
+    width: '100%',
+  },
+  videoShow: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginRight: 30,
+    width: '100%',
+    height: 350,
+    padding: 10,
+  },
+  secondHeader: {
+    width: '100%',
+    height: '100%',
+  },
 });
 
 export default VideoDetails;
