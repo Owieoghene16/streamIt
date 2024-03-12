@@ -11,6 +11,22 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, View, Text, Image, StatusBar, TouchableWithoutFeedback, SafeAreaView, Pressable, FlatList, ScrollView, TextInput, Button } from 'react-native';
 
 const VideoDetails = ({navigation}) => {
+  const [genres, setGenres] = useState([
+    { key: 1, name: 'Action' },
+    { key: 2, name: 'Adventure' },
+    { key: 3, name: 'Animation' },
+    { key: 4, name: 'Comedy' },
+    { key: 5, name: 'Crime' },
+    { key: 6, name: 'Documentary' },
+    { key: 7, name: 'Drama' },
+    { key: 8, name: 'Family' },
+    { key: 9, name: 'Fantasy' },
+    { key: 10, name: 'Film-Noir' },
+    { key: 11, name: 'History' },
+    { key: 12, name: 'Horror' },
+    { key: 13, name: 'Music' },
+    { key: 14, name: 'Musical' },
+  ]);
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.header}>
@@ -70,6 +86,30 @@ const VideoDetails = ({navigation}) => {
                   <Text style={styles.ratingName}>93m</Text>
                 </View>
               </View>
+              <View style={styles.genres}>
+                <FlatList 
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  data={genres}
+                  renderItem={({item}) => (
+                    <Text style={styles.genresType}>{item.name}</Text>
+                  )}
+                />
+              </View>
+              <View style={styles.videoDescription}>
+                <Text style={styles.descriptionSpan}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                  sed do eiusmod tempor incididunt ut labore et dolore magna 
+                  aliqua Ut enim ad minim veniam, quis nostrud exercitation 
+                  ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  sed do eiusmod tempor incididunt ut labore et dolore magna 
+                  Duis aute irure dolor in reprehenderit in voluptate velit 
+                  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+                  sed do eiusmod tempor incididunt ut labore et dolore magna 
+                  occaecat cupidatat non proident, sunt in culpa qui officia 
+                  deserunt mollit anim id est laborum.
+                </Text>
+              </View>
             </View>
           </View>
         </ScrollView>
@@ -89,7 +129,6 @@ const styles = StyleSheet.create({
   },
   navBar: {
     flex: 0.080,
-    position: 'fixed',
     bottom: 0,
     width: '100%',
     height: '100%',
@@ -98,7 +137,6 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   header: {
-    position: 'fixed',
     flexDirection: 'row',
     justifyContent:'space-between',
     alignItems: 'center',
@@ -134,7 +172,6 @@ const styles = StyleSheet.create({
   },
   cartHeader: {
     backgroundColor: 'transparent',
-    cursor: 'pointer',
   },
   input: {
     width: '100%',
@@ -203,9 +240,14 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     lineHeight: 60,
-    borderRadius: '50%',
+    borderRadius: 50,
     backgroundColor: 'skyblue',
     textAlign: 'center',
+  },
+  imageTextName: {
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: 'bold',
   },
   videoName: {
     fontSize: 20,
@@ -214,7 +256,7 @@ const styles = StyleSheet.create({
   releaseHead: {
     width: '100%',
     flexDirection: 'row',
-    marginVertical: 5,
+    marginVertical: 8,
   },
   realeaseName: {
     display: 'flex',
@@ -237,7 +279,31 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#333',
     fontWeight: 'bold',
-  }
+  },
+  genres: {
+    marginVertical: 8,
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  genresType: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    marginRight: 15,
+    backgroundColor: 'skyblue',
+    borderRadius: 10,
+    fontSize: 16,
+    color: '#333',
+    fontWeight: 'bold',
+  },
+  videoDescription: {
+    width: '100%',
+    marginVertical: 8,
+  },
+  descriptionSpan: {
+    width: '100%',
+    fontSize: 16,
+  },
 });
 
 export default VideoDetails;

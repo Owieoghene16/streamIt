@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
   },
   navBar: {
     flex: 0.080,
-    position: 'fixed',
     bottom: 0,
     width: '100%',
     height: '100%',
@@ -131,7 +130,6 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   header: {
-    position: 'fixed',
     flexDirection: 'row',
     justifyContent:'space-between',
     alignItems: 'center',
@@ -167,7 +165,6 @@ const styles = StyleSheet.create({
   },
   cartHeader: {
     backgroundColor: 'transparent',
-    cursor: 'pointer',
   },
   headerLogo: {
     textAlign: 'center',
@@ -258,13 +255,11 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   cartItem: {
-    display: 'fixed',
     width: 60,
     height: 60,
     lineHeight: 60,
     backgroundColor: '#cce7d0',
     position: 'absolute',
-    cursor: 'pointer',
     borderRadius: 20,
     textAlign: 'center',
     bottom: 30,
