@@ -78,9 +78,9 @@ const ShopDetails = ({navigation}) => {
                   <Text style={styles.productName}>$80,099</Text>
                 </View>
                 <View style={styles.quantity}>
-                  <AntDesign name="pluscircle" size={24} color="skyblue" />
-                  <Text style={styles.quantityName}>1</Text>
                   <AntDesign name="minuscircle" size={24} color="skyblue" />
+                  <Text style={styles.quantityName}>1</Text>
+                  <AntDesign name="pluscircle" size={24} color="skyblue" />
                 </View>
               </View>
               <View style={{width: '100%', borderWidth: 0.25, borderColor: 'grey', marginVertical: 15}}></View>
