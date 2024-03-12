@@ -48,11 +48,27 @@ const VideoDetails = ({navigation}) => {
                   }}
                   style={{width: '100%', height: '100%', borderRadius: 20}}
                 />
+                <View style={styles.imageText}>
+                  <View style={styles.imageTextHeader}>
+                    <FontAwesome name="play" size={35} color="white" style={styles.playButton} />
+                    <Text style={styles.imageTextName}>Watch Trailer</Text>
+                  </View>
+                </View>
               </View>
             </View>
             <View style={styles.productContent}>
               <View style={styles.productNameHeader}>
                 <Text style={styles.videoName}>Video Name</Text>
+              </View>
+              <View style={styles.releaseHead}>
+                <View style={styles.realeaseName}>
+                  <Text style={styles.bulletList}></Text>
+                  <Text style={styles.ratingName}>2024-06-11</Text>
+                </View>
+                <View style={styles.realeaseName}>
+                  <Text style={styles.bulletList}></Text>
+                  <Text style={styles.ratingName}>93m</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -156,9 +172,72 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   secondHeader: {
+    position: 'relative',
     width: '100%',
     height: '100%',
   },
+  productContent: {
+    width: '100%',
+    paddingHorizontal: 10,
+  },
+  productNameHeader: {
+    width: '100%',
+  },
+  imageText: {
+    position: 'absolute',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+    zIndex: 5,
+    paddingHorizontal: 15,
+    paddingVertical: 6,
+  },
+  imageTextHeader: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  playButton: {
+    width: 60,
+    height: 60,
+    lineHeight: 60,
+    borderRadius: '50%',
+    backgroundColor: 'skyblue',
+    textAlign: 'center',
+  },
+  videoName: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  releaseHead: {
+    width: '100%',
+    flexDirection: 'row',
+    marginVertical: 5,
+  },
+  realeaseName: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    fontWeight: 'bold',
+    alignItems: 'center',
+    marginRight: 10,
+    width: 100,
+  },
+  bulletList: {
+    width: 5,
+    height: 5,
+    borderRadius: 5,
+    alignContent: 'center',
+    backgroundColor: '#111',
+    marginRight: 10,
+  },
+  ratingName: {
+    fontSize: 16,
+    color: '#333',
+    fontWeight: 'bold',
+  }
 });
 
 export default VideoDetails;
