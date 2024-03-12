@@ -103,9 +103,9 @@ const ShopDetails = ({navigation}) => {
             </View>
           </View>
         </ScrollView>
-            <View>
-              <MaterialCommunityIcons name="cart-outline" size={32} color="green" style={styles.cartItem} />
-            </View>
+        <View>
+          <MaterialCommunityIcons name="cart-outline" size={32} color="green" style={styles.cartItem} />
+        </View>
       </View>
       {/* Bottom Navbar */}
       <View style={styles.navBar}>
@@ -173,18 +173,18 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   notificationBell: {
-    position: 'absolute', /* Overlaps the bell icon */
-    top: -5, /* Adjust position from the top */
-    right: -5, /* Adjust position from the right */
+    position: 'absolute',
+    top: -5, 
+    right: -5,
     borderRadius: 20,
     width: 20,
     height: 20,
     lineHeight: 20,
     zIndex: 10,
-    backgroundColor: '#cce7d0', /* Adjust background color */
-    color: 'white', /* Adjust text color */
-    fontSize: 12, /* Adjust font size for number */
-    textAlign: 'center', /* Center the number inside the badge */
+    backgroundColor: '#cce7d0',
+    color: 'white',
+    fontSize: 12,
+    textAlign: 'center',
   },
   input: {
     width: '100%',

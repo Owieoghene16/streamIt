@@ -22,7 +22,7 @@ const HomeScreen = ({ navigation }) => {
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg', key: 2 },
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/s9YTxwaByYeoSqugYjJJtZjMRAG.jpg', key: 3 },
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/oBIQDKcqNxKckjugtmzpIIOgoc4.jpg', key: 4 },
-    { imageUrl: 'https://image.tmdb.org/t/p/w1280/fCwwzOziFYs7YRwP4gbrb9qH1xg.jpg', key: 5 },
+    { imageUrl: 'https://image.tmdb.org/t/p/w500/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg', key: 5 },
   ]);
   
   return (
@@ -59,7 +59,7 @@ const HomeScreen = ({ navigation }) => {
                 source={{
                   uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
                 }}
-                style={{width: 250, height: 200}}
+                style={{ width: 250, height: 200 }}
               />
             </View>
           </View>
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     borderWidth: 1,
     width: 310,
-    height: 300,
+    height: 310,
     marginLeft: 3,
     marginRight: 12,
   },

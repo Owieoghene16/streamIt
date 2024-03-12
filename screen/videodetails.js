@@ -76,14 +76,20 @@ const VideoDetails = ({navigation}) => {
               <View style={styles.productNameHeader}>
                 <Text style={styles.videoName}>Video Name</Text>
               </View>
-              <View style={styles.releaseHead}>
-                <View style={styles.realeaseName}>
-                  <Text style={styles.bulletList}></Text>
-                  <Text style={styles.ratingName}>2024-06-11</Text>
+              <View style={styles.releaseLike}>
+                <View style={styles.releaseHead}>
+                  <View style={styles.realeaseName}>
+                    <Text style={styles.bulletList}></Text>
+                    <Text style={styles.ratingName}>2024-06-11</Text>
+                  </View>
+                  <View style={styles.realeaseName}>
+                    <Text style={styles.bulletList}></Text>
+                    <Text style={styles.ratingName}>93m</Text>
+                  </View>
                 </View>
-                <View style={styles.realeaseName}>
-                  <Text style={styles.bulletList}></Text>
-                  <Text style={styles.ratingName}>93m</Text>
+                <View style={styles.Likes}>
+                  <AntDesign name="like2" size={24} color="skyblue" style={styles.videoIcon} />
+                  <Text style={{fontSize: 10, fontWeight: 'bold', color: 'grey', textAlign: 'center'}}>12k</Text>
                 </View>
               </View>
               <View style={styles.genres}>
@@ -109,6 +115,18 @@ const VideoDetails = ({navigation}) => {
                   occaecat cupidatat non proident, sunt in culpa qui officia 
                   deserunt mollit anim id est laborum.
                 </Text>
+              </View>
+              <View style={styles.cast}>
+                <Text style={styles.director}>Director:</Text>
+                <Text style={styles.actors}>Kindness Okpugie</Text>
+              </View>
+              <View style={styles.cast}>
+                <Text style={styles.director}>Actors:</Text>
+                <Text style={styles.actors}>Tom cruise, Jennifer lopez, Miles Teller.</Text>
+              </View>
+              <View style={styles.cast}>
+                <Text style={styles.director}>Writers:</Text>
+                <Text style={styles.actors}>Joseph Kranacki, Zack sylder, Peter craig.</Text>
               </View>
             </View>
           </View>
@@ -244,6 +262,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'skyblue',
     textAlign: 'center',
   },
+  Likes: {
+    marginRight: 12,
+    textAlign: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
   imageTextName: {
     fontSize: 20,
     color: '#fff',
@@ -253,10 +278,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  releaseHead: {
+  releaseLike: {
     width: '100%',
     flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent: 'space-between',
     marginVertical: 8,
+  },
+  releaseHead: {
+    width: '50%',
+    flexDirection: 'row',
   },
   realeaseName: {
     display: 'flex',
@@ -303,6 +334,22 @@ const styles = StyleSheet.create({
   descriptionSpan: {
     width: '100%',
     fontSize: 16,
+  },
+  cast: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 5,
+  },
+  director: {
+    marginRight: 5,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  actors: {
+    fontSize: 18,
+    display: 'flex',
+    flexWrap: 'wrap',
+    color: 'skyblue',
   },
 });
 
