@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#cce7d0',
     border: '1px solid',
     position: 'absolute',
-    cursor: 'pointer',
     bottom: 3,
     borderRadius: 20,
     textAlign: 'center',

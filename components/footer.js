@@ -21,13 +21,13 @@ const Footer = ({ navigation }) => {
               <Text style={{color: 'skyblue'}}>Shop</Text>
             </View>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('Shop')}>
+          <TouchableWithoutFeedback onPress={() => navigation.navigate('Video')}>
             <View style={styles.navItem}>
               <Entypo name="folder-video" size={24} color="skyblue" />
-              <Text style={{color: 'skyblue'}}>Video</Text>
+              <Text style={{color: 'skyblue'}}>Movies</Text>
             </View>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('Shop')}>
+          <TouchableWithoutFeedback onPress={() => navigation.navigate('Profile')}>
             <View style={styles.navItem}>
               <MaterialIcons name="admin-panel-settings" size={24} color="skyblue" />
               <Text style={{color: 'skyblue'}}>Profile</Text>

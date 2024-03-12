@@ -34,6 +34,7 @@ const ShopScreen = ({navigation}) => {
           </View>
           <Pressable>
             <MaterialCommunityIcons name="cart-outline" size={35} color="white" style={styles.cartHeader} />
+            <Text style={styles.notificationBell}>1</Text>
           </Pressable>
         </View>
       </View>
@@ -66,7 +67,7 @@ const ShopScreen = ({navigation}) => {
                       <Text numberOfLines={1} ellipsizeMode='tail' style={styles.metricsName}>Food Name</Text>
                     </View>
                     <View style={styles.rating}>
-                      <Text style={styles.metricsPrice}>20,000</Text>
+                      <Text style={styles.metricsPrice}>₦20,000</Text>
                       <Text style={styles.ratingOff}>15%</Text>
                     </View>
                     <View style={{paddingVertical: 20, flexDirection:'row', alignItems: 'center'}}>
@@ -153,7 +154,20 @@ const styles = StyleSheet.create({
   },
   cartHeader: {
     backgroundColor: 'transparent',
-    cursor: 'pointer',
+  },
+  notificationBell: {
+    position: 'absolute', /* Overlaps the bell icon */
+    top: -5, /* Adjust position from the top */
+    right: -5, /* Adjust position from the right */
+    borderRadius: 20,
+    width: 20,
+    height: 20,
+    lineHeight: 20,
+    zIndex: 10,
+    backgroundColor: '#cce7d0', /* Adjust background color */
+    color: 'white', /* Adjust text color */
+    fontSize: 12, /* Adjust font size for number */
+    textAlign: 'center', /* Center the number inside the badge */
   },
   headerLogo: {
     textAlign: 'center',
@@ -164,8 +178,6 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     height: 50,
-    fontFamily: 'Verdana',
-    outline: 'none',
     backgroundColor: '#fff',
     borderColor: '#cce7d0',
     color: '#666',
@@ -244,7 +256,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#cce7d0',
     border: '1px solid',
     position: 'absolute',
-    cursor: 'pointer',
     bottom: 3,
     borderRadius: 20,
     textAlign: 'center',

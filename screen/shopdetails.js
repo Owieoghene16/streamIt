@@ -4,11 +4,11 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 import Footer from '../components/footer';
 import { Octicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { StyleSheet, View, Text, Image, StatusBar, TouchableWithoutFeedback, SafeAreaView, Pressable, FlatList, ScrollView, TextInput } from 'react-native';
+import { StyleSheet, View, Text, Image, StatusBar, TouchableWithoutFeedback, SafeAreaView, Pressable, FlatList, ScrollView, TextInput, Button } from 'react-native';
 
 const ShopDetails = ({navigation}) => {
   const [movies, setMovies] = useState([
@@ -34,6 +34,7 @@ const ShopDetails = ({navigation}) => {
           </View>
           <Pressable>
             <MaterialCommunityIcons name="cart-outline" size={35} color="white" style={styles.cartHeader} />
+            <Text style={styles.notificationBell}>1</Text>
           </Pressable>
         </View>
       </View>
@@ -57,13 +58,54 @@ const ShopDetails = ({navigation}) => {
                 />
               </View>
             </View>
-            <View style={styles.productNameHeader}>
-              <Text style={styles.productName}>
-                Loren Ipsum Text Generator: Loren Ipsum Text Generator
-              </Text>
+            <View style={styles.productContent}>
+              <View style={styles.productNameHeader}>
+                <Text style={styles.productName}>
+                  Loren Ipsum Duis
+                </Text>
+              </View>
+              <View style={styles.rating}>
+                <Pressable style={styles.infoButton}>
+                  <Text style={styles.infoButtonText}>4200 Sold</Text>
+                </Pressable>
+                <View style={styles.ratingIcons}>
+                  <Entypo name="star" size={15} color="orange" />
+                  <Text>4.5</Text>
+                  <Text>(400 reviews)</Text>
+                </View>
+              </View>
+              <View style={styles.quantityHeader}>
+                <View>
+                  <Text style={styles.productName}>₦79,999</Text>
+                </View>
+                <View style={styles.quantity}>
+                  <AntDesign name="minuscircle" size={24} color="skyblue" />
+                  <Text style={styles.quantityName}>1</Text>
+                  <AntDesign name="pluscircle" size={24} color="skyblue" />
+                </View>
+              </View>
+              <View style={{width: '100%', borderWidth: 0.25, borderColor: 'grey', marginVertical: 15}}></View>
+              <View style={styles.productNameHeader}>
+                <Text style={styles.productName}>Description</Text>
+              </View>
+              <View style={styles.descriptionView}>
+                <Text style={styles.descriptionSpan}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                  sed do eiusmod tempor incididunt ut labore et dolore magna 
+                  aliqua Ut enim ad minim veniam, quis nostrud exercitation 
+                  ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  Duis aute irure dolor in reprehenderit in voluptate velit 
+                  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+                  occaecat cupidatat non proident, sunt in culpa qui officia 
+                  deserunt mollit anim id est laborum.
+                </Text>
+              </View>
             </View>
           </View>
         </ScrollView>
+        <View>
+          <MaterialCommunityIcons name="cart-outline" size={32} color="green" style={styles.cartItem} />
+        </View>
       </View>
       {/* Bottom Navbar */}
       <View style={styles.navBar}>
@@ -80,7 +122,6 @@ const styles = StyleSheet.create({
   },
   navBar: {
     flex: 0.080,
-    position: 'fixed',
     bottom: 0,
     width: '100%',
     height: '100%',
@@ -89,7 +130,6 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   header: {
-    position: 'fixed',
     flexDirection: 'row',
     justifyContent:'space-between',
     alignItems: 'center',
@@ -125,13 +165,26 @@ const styles = StyleSheet.create({
   },
   cartHeader: {
     backgroundColor: 'transparent',
-    cursor: 'pointer',
   },
   headerLogo: {
     textAlign: 'center',
     fontSize: 28,
     fontWeight: 'bold',
     color: '#fff',
+  },
+  notificationBell: {
+    position: 'absolute',
+    top: -5, 
+    right: -5,
+    borderRadius: 20,
+    width: 20,
+    height: 20,
+    lineHeight: 20,
+    zIndex: 10,
+    backgroundColor: '#cce7d0',
+    color: 'white',
+    fontSize: 12,
+    textAlign: 'center',
   },
   input: {
     width: '100%',
@@ -158,13 +211,75 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  productNameHeader: {
+  productContent: {
     width: '100%',
     paddingHorizontal: 10,
+  },
+  productNameHeader: {
+    width: '100%',
   },
   productName: {
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  rating: {
+    flexDirection: 'row',
+  },
+  infoButton: {
+    marginVertical: 10,
+    fontSize: 12,
+    backgroundColor: '#cce7d0',
+    width: 80,
+    height: 25,
+    lineHeight: 20,
+    textAlign: 'center',
+    justifyContent: 'center',
+  },
+  infoButtonText: {
+    color: '#888',
+    textAlign: 'center',
+  },
+  ratingIcons: {
+    flexDirection: 'row',
+    width: '40%',
+    justifyContent:'space-around',
+    alignItems: 'center',
+  },
+  descriptionView: {
+    width: '100%',
+    position: 'relative',
+    marginTop: 10,
+    marginBottom: 40,
+  },
+  descriptionSpan: {
+    fontSize: 15,
+  },
+  cartItem: {
+    width: 60,
+    height: 60,
+    lineHeight: 60,
+    backgroundColor: '#cce7d0',
+    position: 'absolute',
+    borderRadius: 20,
+    textAlign: 'center',
+    bottom: 30,
+    right: 30,
+    zIndex: 5,
+  },
+  quantityHeader: {
+    flexDirection: 'row',
+    justifyContent:'space-between',
+    alignItems: 'center',
+  },
+  quantity: {
+    flexDirection: 'row',
+    width: '40%',
+    justifyContent:'flex-start',
+    alignItems: 'center',
+  },
+  quantityName: {
+    fontSize: 20,
+    paddingHorizontal: 10,
   }
 });
 
