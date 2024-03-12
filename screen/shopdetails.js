@@ -76,7 +76,7 @@ const ShopDetails = ({navigation}) => {
               </View>
               <View style={styles.quantityHeader}>
                 <View>
-                  <Text style={styles.productName}>$80,099</Text>
+                  <Text style={styles.productName}>₦79,999</Text>
                 </View>
                 <View style={styles.quantity}>
                   <AntDesign name="minuscircle" size={24} color="skyblue" />

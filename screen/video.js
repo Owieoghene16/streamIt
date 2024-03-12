@@ -6,10 +6,11 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 import Footer from '../components/footer';
-import { StyleSheet, View, Text, Image, StatusBar, Pressable, SafeAreaView, Button, FlatList, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, StatusBar, Pressable, SafeAreaView, TextInput, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
+const VideoScreen = ({ navigation }) => {
   const [data, setData] = useState([
     { text: 'Wake up early', key: 1 },
     { text: 'Come to the office', key: 2 },
@@ -32,19 +33,20 @@ const HomeScreen = ({ navigation }) => {
     <>
       <SafeAreaView style={{flex: 1}}>
       <View style={styles.header}>
-        <View>
-          <Text style={styles.headerLogo}>Owie's PLace</Text>
-        </View>
-        <View>
+        <View style={styles.headerFon}>
+          <View style={styles.headerInput}>
+            <TextInput 
+              style={styles.input} 
+              placeholder="Search..."
+            />
+            <Pressable style={styles.searchButton}>
+              <Octicons name="search" size={24} color="white" />
+            </Pressable>
+          </View>
           <Pressable>
-              <Image
-                source={{
-                  uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
-                }}
-                style={{width: 45, height: 45, borderRadius: 25}}
-              />
+            <MaterialCommunityIcons name="cart-outline" size={35} color="white" style={styles.cartHeader} />
+            <Text style={styles.notificationBell}>1</Text>
           </Pressable>
-          <Text style={styles.notificationBell}>1</Text>
         </View>
       </View>
       <View style={styles.container}>
@@ -56,66 +58,16 @@ const HomeScreen = ({ navigation }) => {
           hidden={false} 
         />
         <ScrollView> 
-          <View style={styles.main}>
-            <View style={styles.mainAds}>
-              <Image
-                source={{
-                  uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-                }}
-                style={{ width: 250, height: 200 }}
-              />
+          <View style={styles.mainAds}>
+            <View style={styles.shopHead}>
+              <Text style={styles.shopHeadText}>Movies</Text>
             </View>
           </View>
           <View style={styles.firstRow}>
-            <Pressable onPress={() => navigation.navigate('Shop')} >
-              <View style={styles.firstHeader}>
-                <Text style={styles.mainText}>Best Deals</Text>
-                <Entypo name="arrow-long-right" size={24} color="white" />
-              </View>
-            </Pressable>
-          </View>
-          <View style={styles.secondRow}>
-            <View style={styles.secondDiv}>
-              <FlatList 
-                horizontal
-                showsHorizontalScrollIndicator={true}
-                data={data}
-                renderItem={(item) => (
-                  <TouchableOpacity onPress={() => navigation.navigate('ShopDetails')}>
-                  <View style={styles.secondHeader}>
-                    <Image
-                      source={{
-                        uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
-                      }}
-                      style={{width: '100%', height: 170, borderRadius: 20}}
-                    />
-                    <View style={styles.metrics}>
-                      <Text numberOfLines={1} ellipsizeMode='tail' style={styles.metricsName}>Food Name</Text>
-                    </View>
-                    <View style={styles.rating}>
-                      <Text style={styles.metricsPrice}>₦20,000</Text>
-                      <Text style={styles.ratingOff}>15%</Text>
-                    </View>
-                    <View style={{paddingVertical: 20, flexDirection:'row', alignItems: 'center'}}>
-                      <Text style={{fontSize: 12}}>Owie's Place</Text>
-                      <MaterialIcons name="verified" size={20} color="skyblue" />
-                    </View>
-                    <View>
-                      <MaterialCommunityIcons name="cart-outline" size={24} color="green" style={styles.cart} />
-                    </View>
-                  </View>
-                  </TouchableOpacity>
-                )}
-              />
+            <View style={styles.firstHeader}>
+              <Text style={styles.mainText}>Top Videos</Text>
+              <Entypo name="arrow-long-right" size={24} color="white" />
             </View>
-          </View>
-          <View style={styles.firstRow}>
-            <Pressable onPress={() => navigation.navigate('Video')} >
-              <View style={styles.firstHeader}>
-                <Text style={styles.mainText}>Top Videos</Text>
-                <Entypo name="arrow-long-right" size={24} color="white" />
-              </View>
-            </Pressable>
           </View>
           <View style={styles.thirdRow}>
             <View style={styles.thirdDiv}>
@@ -198,19 +150,52 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   header: {
+    position: 'fixed',
     flexDirection: 'row',
     justifyContent:'space-between',
     alignItems: 'center',
-    backgroundColor: '#333',
     width: '100%',
-    height: 60,
+    height: 70,
     backgroundColor: 'skyblue',
     paddingHorizontal: 18,
   },
-  headerLogo: {
+  headerFon: {
+    position: 'relative',
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  searchButton: {
+    position: 'absolute',
+    right: 7,
+    top: 5,
+    width: 50,
+    height: 40,
+    lineHeight: 20,
+    borderRadius: 20,
+    textAlign: 'center',
+    backgroundColor: 'skyblue',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  input: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#fff',
+    borderColor: '#cce7d0',
+    color: '#666',
     fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+  },
+  cartHeader: {
+    backgroundColor: 'transparent',
+  },
+  headerInput: {
+    position: 'relative',
+    width: '85%',
   },
   notificationBell: {
     position: 'absolute', /* Overlaps the bell icon */
@@ -234,7 +219,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    paddingVertical: 20,
+    marginBottom: 20,
+  },
+  shopHead: {
+    width: '100%',
+    height: 40,
+    backgroundColor: '#cce7d0',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  shopHeadText: {
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
+    fontFamily: 'monospace',
   },
   firstRow: {
     width: '100%',
@@ -249,30 +247,6 @@ const styles = StyleSheet.create({
   },
   mainText: {
     color: 'white',
-  },
-  secondRow: {
-    width: '100%',
-    marginVertical: 15,
-  },
-  secondDiv: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent:'space-between',
-    alignItems: 'center',
-    overflowX: 'scroll',
-  },
-  secondHeader: {
-    justifyContent: 'center',
-    position: 'relative',
-    boxSizing: 'border-box',
-    borderColor: 'skyblue',
-    paddingHorizontal: 7,
-    paddingVertical: 6,
-    borderRadius: 25,
-    borderWidth: 1,
-    width: 170,
-    marginLeft: 3,
-    marginRight: 12,
   },
   thirdRow: {
     width: '100%',
@@ -446,5 +420,4 @@ const styles = StyleSheet.create({
   }
 });
 
-
-export default HomeScreen;
+export default VideoScreen;

@@ -67,7 +67,7 @@ const ShopScreen = ({navigation}) => {
                       <Text numberOfLines={1} ellipsizeMode='tail' style={styles.metricsName}>Food Name</Text>
                     </View>
                     <View style={styles.rating}>
-                      <Text style={styles.metricsPrice}>20,000</Text>
+                      <Text style={styles.metricsPrice}>₦20,000</Text>
                       <Text style={styles.ratingOff}>15%</Text>
                     </View>
                     <View style={{paddingVertical: 20, flexDirection:'row', alignItems: 'center'}}>
