@@ -34,6 +34,7 @@ const ShopScreen = ({navigation}) => {
           </View>
           <Pressable>
             <MaterialCommunityIcons name="cart-outline" size={35} color="white" style={styles.cartHeader} />
+            <Text style={styles.notificationBell}>1</Text>
           </Pressable>
         </View>
       </View>
@@ -154,6 +155,20 @@ const styles = StyleSheet.create({
   cartHeader: {
     backgroundColor: 'transparent',
     cursor: 'pointer',
+  },
+  notificationBell: {
+    position: 'absolute', /* Overlaps the bell icon */
+    top: -5, /* Adjust position from the top */
+    right: -5, /* Adjust position from the right */
+    borderRadius: 20,
+    width: 20,
+    height: 20,
+    lineHeight: 20,
+    zIndex: 10,
+    backgroundColor: '#cce7d0', /* Adjust background color */
+    color: 'white', /* Adjust text color */
+    fontSize: 12, /* Adjust font size for number */
+    textAlign: 'center', /* Center the number inside the badge */
   },
   headerLogo: {
     textAlign: 'center',

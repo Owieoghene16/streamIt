@@ -41,6 +41,7 @@ const HomeScreen = ({ navigation }) => {
                 style={{width: 45, height: 45, borderRadius: 25}}
               />
           </Pressable>
+          <Text style={styles.notificationBell}>1</Text>
         </View>
       </View>
       <View style={styles.container}>
@@ -207,6 +208,20 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#fff',
+  },
+  notificationBell: {
+    position: 'absolute', /* Overlaps the bell icon */
+    top: -5, /* Adjust position from the top */
+    right: -5, /* Adjust position from the right */
+    borderRadius: 20,
+    width: 20,
+    height: 20,
+    lineHeight: 20,
+    zIndex: 10,
+    backgroundColor: '#cce7d0', /* Adjust background color */
+    color: 'white', /* Adjust text color */
+    fontSize: 12, /* Adjust font size for number */
+    textAlign: 'center', /* Center the number inside the badge */
   },
   main: {
     width: '100%',
