@@ -23,6 +23,9 @@ const HomeScreen = ({ navigation }) => {
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/s9YTxwaByYeoSqugYjJJtZjMRAG.jpg', key: 3 },
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/oBIQDKcqNxKckjugtmzpIIOgoc4.jpg', key: 4 },
     { imageUrl: 'https://image.tmdb.org/t/p/w500/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg', key: 5 },
+    { imageUrl: 'https://image.tmdb.org/t/p/w1280/feSiISwgEpVzR1v3zv2n2AU4ANJ.jpg', key: 6 },
+    { imageUrl: 'https://image.tmdb.org/t/p/w1280/3Kzc6V4MWs3RXCmE5DhAYnfWL8F.jpg', key: 7 },
+    { imageUrl: 'https://image.tmdb.org/t/p/w1280/ehumsuIBbgAe1hg343oszCLrAfI.jpg', key: 8 },
   ]);
   
   return (
@@ -163,7 +166,7 @@ const HomeScreen = ({ navigation }) => {
           </View>
           <View style={styles.firstRow}>
             <View style={styles.firstHeader}>
-              <Text style={styles.mainText}>Saved</Text>
+              <Text style={styles.mainText}>Recents</Text>
               <Entypo name="arrow-long-right" size={24} color="white" />
             </View>
           </View>

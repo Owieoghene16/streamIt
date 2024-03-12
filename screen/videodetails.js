@@ -126,7 +126,10 @@ const VideoDetails = ({navigation}) => {
               </View>
               <View style={styles.cast}>
                 <Text style={styles.director}>Writers:</Text>
-                <Text style={styles.actors}>Joseph Kranacki, Zack sylder, Peter craig.</Text>
+                <Text style={styles.actors}>Joseph Kranacki, Peter craig.</Text>
+              </View>
+              <View style={{width: '100%', marginBottom: 50, marginTop: 10,}}>
+                <Text style={styles.playNow}>Play Now</Text>
               </View>
             </View>
           </View>
@@ -351,6 +354,20 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     color: 'skyblue',
   },
+  playNow: {
+    width: '100%',
+    height: 50,
+    lineHeight: 50,
+    backgroundColor: 'skyblue',
+    borderRadius: 50,
+    display: 'flex',
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#111',
+  }
 });
 
 export default VideoDetails;

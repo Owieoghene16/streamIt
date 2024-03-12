@@ -178,8 +178,6 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     height: 50,
-    fontFamily: 'Verdana',
-    outline: 'none',
     backgroundColor: '#fff',
     borderColor: '#cce7d0',
     color: '#666',
