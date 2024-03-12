@@ -119,6 +119,7 @@ const HomeScreen = ({ navigation }) => {
                 data={movies}
                 renderItem={({item}) => (
                   <View style={styles.videoCont}>
+                  <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
                     <Image
                       source={{
                         uri: item?.imageUrl,
@@ -153,6 +154,7 @@ const HomeScreen = ({ navigation }) => {
                         <Text style={styles.typeName}>Adventure</Text>
                       </View>
                     </View>
+                    </TouchableOpacity>
                   </View>
                 )}
               />
