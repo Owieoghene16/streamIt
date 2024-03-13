@@ -8,9 +8,13 @@ import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import Footer from '../components/footer';
-import { StyleSheet, View, Text, Image, StatusBar, Pressable, SafeAreaView, Button, FlatList, ScrollView, TouchableOpacity } from 'react-native';
+import { RadioButton } from 'react-native-paper';
+import { StyleSheet, View, Text, Image, StatusBar, Pressable, SafeAreaView, Modal, FlatList, ScrollView, TouchableOpacity, Alert } from 'react-native';
 
 const ProfileScreen = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [checked, setChecked] = useState(true);
+
   return (
     <>
       <SafeAreaView style={{flex: 1}}>
@@ -62,7 +66,7 @@ const ProfileScreen = ({ navigation }) => {
               <Text style={styles.profileHeaderName}>Profile</Text>
             </View>
             <View style={styles.manageAccount}>
-              <Pressable onPress={() => navigation.navigate('Profile')}>
+              <Pressable onPress={() => navigation.navigate('Account')}>
                 <View style={styles.manage}>
                   <View style={styles.manageIcon}>
                     <View>
@@ -79,7 +83,7 @@ const ProfileScreen = ({ navigation }) => {
               <Text style={styles.profileHeaderName}>Settings</Text>
             </View>
             <View style={styles.manageAccount}>
-              <Pressable onPress={() => navigation.navigate('Profile')}>
+              <Pressable onPress={() => navigation.navigate('Notification')}>
                 <View style={styles.manage}>
                   <View style={styles.manageIcon}>
                     <View>
@@ -93,16 +97,62 @@ const ProfileScreen = ({ navigation }) => {
               </Pressable>
             </View>
             <View style={styles.manageAccount}>
-              <Pressable onPress={() => navigation.navigate('Profile')}>
+              <Pressable onPress={() => setModalVisible(true)}>
                 <View style={styles.manage}>
                   <View style={styles.manageIcon}>
                     <MaterialIcons name="light-mode" size={24} color="skyblue" style={styles.manageIconPic} />
                     <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',}}>
-                      <Text style={{fontSize: 18, fontWeight: 'bold'}}>Apperance</Text>
+                      <Text style={{fontSize: 18, fontWeight: 'bold'}}>Appearance</Text>
                       <Text style={{fontSize: 12, fontWeight: 'bold', color: 'grey'}}>System</Text>
                     </View>
                   </View>
                   <MaterialIcons name="navigate-next" size={24} color="black" />
+                  <Modal
+                    animationType="fade"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={() => {
+                    Alert.alert('Modal has been closed.');
+                      setModalVisible(!modalVisible);
+                    }}>
+                    <View style={styles.centeredView}>
+                      <View style={styles.modalView}>
+                        <Text style={styles.modalText}>Appearance</Text>
+                        <View style={styles.radioCheck}>
+                          <RadioButton
+                            value="first"
+                            color='skyblue'
+                            status={ checked ? 'checked' : 'unchecked' }
+                            onPress={() => setChecked(!checked)}
+                          />
+                          <Text style={{fontSize: 20, fontWeight: 'bold', color: 'grey'}}>System</Text>
+                        </View>
+                        <View style={styles.radioCheck}>
+                          <RadioButton
+                            value="first"
+                            color='skyblue'
+                            status={ checked ? 'checked' : 'unchecked' }
+                            onPress={() => setChecked(!checked)}
+                          />
+                          <Text style={{fontSize: 20, fontWeight: 'bold', color: 'grey'}}>Light Mode</Text>
+                        </View>
+                        <View style={styles.radioCheck}>
+                          <RadioButton
+                            value="first"
+                            color='skyblue'
+                            status={ checked ? 'checked' : 'unchecked' }
+                            onPress={() => setChecked(!checked)}
+                          />
+                          <Text style={{fontSize: 20, fontWeight: 'bold', color: 'grey'}}>Dark Mode</Text>
+                        </View>
+                        <Pressable
+                          style={styles.button}
+                          onPress={() => setModalVisible(!modalVisible)}>
+                          <Text style={styles.textStyle}>CANCEL</Text>
+                        </Pressable>
+                      </View>
+                    </View>
+                  </Modal>
                 </View>
               </Pressable>
             </View>
@@ -154,7 +204,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -5,
     right: -5,
-    borderRadius: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
     width: 20,
     height: 20,
     lineHeight: 20,
@@ -168,7 +219,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -5,
     right: -5,
-    borderRadius: 20,
+    overflow: 'hidden',
+    borderRadius: 10,
     width: 20,
     height: 20,
     lineHeight: 20,
@@ -250,23 +302,74 @@ const styles = StyleSheet.create({
     height: 50,
     lineHeight: 50,
     backgroundColor: '#cce7d0',
-    borderRadius: 50,
+    borderRadius: 25,
+    overflow: 'hidden',
     textAlign: 'center',
   },
   signOut: {
     marginVertical: 40,
   },
   signOutText: {
-    width: 150,
-    height: 60,
-    lineHeight: 60,
-    backgroundColor: 'skyblue',
-    borderRadius: 50,
+    width: 120,
+    height: 50,
+    lineHeight: 50,
+    overflow: 'hidden',
+    borderRadius: 10,
     textAlign: 'center',
-    fontSize: 18,
+    backgroundColor: 'skyblue',
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#111',
   },
+
+
+  
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 15,
+    backgroundColor: ' rgba(0,0,0,0.4)'
+  },
+  modalView: {
+    width: '100%',
+    position: 'relative',
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  radioCheck: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    gap: 10,
+  },
+  textStyle: {
+    color: 'skyblue',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'right',
+    marginRight: 15,
+  },
+  modalText: {
+    marginBottom: 15,
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  radioButtonStyle: {
+    color: 'red',
+  },
+
 });
 
 export default ProfileScreen;

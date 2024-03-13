@@ -35,17 +35,27 @@ const HomeScreen = ({ navigation }) => {
         <View>
           <Text style={styles.headerLogo}>Owie's PLace</Text>
         </View>
-        <View>
-          <Pressable onPress={() => navigation.navigate('Profile')}>
-              <Image
-                source={{
-                  uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
-                }}
-                style={{width: 45, height: 45, borderRadius: 25}}
-              />
-          </Pressable>
-          <Text style={styles.notificationBell}>1</Text>
-        </View>
+        <View style={{flexDirection: 'row', alignItems: 'center', gap: 5,}}>
+            <View>
+              <MaterialCommunityIcons name="cart-outline" size={35} color="white" style={styles.cartHeader} />
+              <Text style={styles.notificationBell}>4</Text>
+            </View>
+            <View>
+              <MaterialIcons name="watch-later" size={35} color="white" style={styles.cartHeader} />
+              <Text style={styles.notificationBell}>1</Text>
+            </View>
+            <View>
+              <Pressable onPress={() => navigation.navigate('Profile')}>
+                <Image
+                  source={{
+                    uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
+                  }}
+                  style={{width: 45, height: 45, borderRadius: 25}}
+                />
+              </Pressable>
+              <Text style={styles.notificationBell}>1</Text>
+            </View>
+          </View>
       </View>
       <View style={styles.container}>
         <StatusBar
@@ -217,11 +227,12 @@ const styles = StyleSheet.create({
     top: -5, /* Adjust position from the top */
     right: -5, /* Adjust position from the right */
     borderRadius: 20,
+    overflow: 'hidden',
     width: 20,
     height: 20,
     lineHeight: 20,
     zIndex: 10,
-    backgroundColor: '#cce7d0', /* Adjust background color */
+    backgroundColor: 'orange',
     color: 'white', /* Adjust text color */
     fontSize: 12, /* Adjust font size for number */
     textAlign: 'center', /* Center the number inside the badge */
@@ -340,6 +351,7 @@ const styles = StyleSheet.create({
     height: 50,
     lineHeight: 50,
     backgroundColor: '#333',
+    overflow: 'hidden',
     borderRadius: 20,
     textAlign: 'center',
   },
@@ -349,6 +361,7 @@ const styles = StyleSheet.create({
     lineHeight: 50,
     backgroundColor: '#fff',
     borderRadius: 20,
+    overflow: 'hidden',
     textAlign: 'center',
   },
   videoNameHead: {
@@ -441,6 +454,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 3,
     borderRadius: 20,
+    overflow: 'hidden',
     textAlign: 'center',
     right: 1,
   }

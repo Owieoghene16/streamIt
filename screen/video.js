@@ -44,7 +44,7 @@ const VideoScreen = ({ navigation }) => {
             </Pressable>
           </View>
           <Pressable>
-            <MaterialCommunityIcons name="cart-outline" size={35} color="white" style={styles.cartHeader} />
+            <MaterialIcons name="watch-later" size={35} color="white" style={styles.cartHeader} />
             <Text style={styles.notificationBell}>1</Text>
           </Pressable>
         </View>
@@ -366,12 +366,13 @@ const styles = StyleSheet.create({
     position: 'absolute', /* Overlaps the bell icon */
     top: -5, /* Adjust position from the top */
     right: -5, /* Adjust position from the right */
-    borderRadius: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
     width: 20,
     height: 20,
     lineHeight: 20,
     zIndex: 10,
-    backgroundColor: '#cce7d0', /* Adjust background color */
+    backgroundColor: 'orange',
     color: 'white', /* Adjust text color */
     fontSize: 12, /* Adjust font size for number */
     textAlign: 'center', /* Center the number inside the badge */
@@ -397,7 +398,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 25,
     fontWeight: 'bold',
-    fontFamily: 'monospace',
   },
   firstRow: {
     width: '100%',
@@ -480,6 +480,7 @@ const styles = StyleSheet.create({
     lineHeight: 50,
     backgroundColor: '#333',
     borderRadius: 20,
+    overflow: 'hidden',
     textAlign: 'center',
   },
   videoIconTwo: {
@@ -487,6 +488,7 @@ const styles = StyleSheet.create({
     height: 50,
     lineHeight: 50,
     backgroundColor: '#fff',
+    overflow: 'hidden',
     borderRadius: 20,
     textAlign: 'center',
   },
