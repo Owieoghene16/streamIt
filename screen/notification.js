@@ -47,28 +47,107 @@ const NotificationScreen = ({ navigation }) => {
               <View style={styles.dateTimer}>
                 <Text style={styles.dateTimerText}>A place to see your activity and transaction notifications</Text>
               </View>
-              <View style={styles.notifyBox}>
-                <View style={styles.notifyContent}>
-                  <View style={styles.notifyHead}>
-                    <Image
-                      source={{
-                        uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
-                      }}
-                      style={{width: 45, height: 45, borderRadius: 25}}
-                    />
-                    <Text style={{fontSize: 18, fontWeight: 'bold'}}>Account Creation!</Text>
+              <View style={styles.nofificationContent}>
+                <View style={styles.notifyBox}>
+                  <View style={styles.notifyContent}>
+                    <Pressable>
+                      <View style={styles.notifyHead}>
+                        <Image
+                          source={{
+                            uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
+                          }}
+                          style={{width: 45, height: 45, borderRadius: 25}}
+                        />
+                        <Text style={{fontSize: 18, fontWeight: 'bold'}}>Account Creation!</Text>
+                      </View>
+                      <View style={styles.notifyMessage}>
+                        <Text numberOfLines={3} ellipsizeMode='tail' style={styles.notifyText}>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                          sed do eiusmod tempor incididunt ut labore et dolore 
+                          magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                          exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+                          consequat. Duis aute irure dolor in reprehenderit.
+                        </Text>
+                      </View>
+                      <View style={{borderWidth: 0.25, borderColor: 'grey', marginVertical: 5}}></View>
+                      <View style={styles.notifyMore}>
+                        <View style={styles.notifyTimer}>
+                          <Text style={{fontWeight: 'bold', color: 'grey'}}>Yesterday: 08:17pm</Text>
+                        </View>
+                        <View style={styles.notifyMoreInfo}>
+                          <Text style={{fontWeight: 'bold', color: 'grey'}}>View</Text>
+                          <MaterialIcons name="navigate-next" size={24} color="grey" />
+                        </View>
+                      </View>
+                    </Pressable>
                   </View>
-                  <View style={styles.notifyMessage}>
-                    <Text style={styles.notifyText}>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                      sed do eiusmod tempor incididunt ut labore et dolore 
-                      magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                      exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                      consequat. Duis aute irure dolor in reprehenderit.
-                    </Text>
+                  <Text style={styles.notificationBell}>!</Text>
+                </View>
+                <View style={styles.notifyBox}>
+                  <View style={styles.notifyContent}>
+                    <Pressable>
+                      <View style={styles.notifyHead}>
+                        <Image
+                          source={{
+                            uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
+                          }}
+                          style={{width: 45, height: 45, borderRadius: 25}}
+                        />
+                        <Text style={{fontSize: 18, fontWeight: 'bold'}}>Account Creation!</Text>
+                      </View>
+                      <View style={styles.notifyMessage}>
+                        <Text numberOfLines={3} ellipsizeMode='tail' style={styles.notifyText}>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </Text>
+                      </View>
+                      <View style={{borderWidth: 0.25, borderColor: 'grey', marginVertical: 5}}></View>
+                      <View style={styles.notifyMore}>
+                        <View style={styles.notifyTimer}>
+                          <Text style={{fontWeight: 'bold', color: 'grey'}}>Yesterday: 08:17pm</Text>
+                        </View>
+                        <View style={styles.notifyMoreInfo}>
+                          <Text style={{fontWeight: 'bold', color: 'grey'}}>View</Text>
+                          <MaterialIcons name="navigate-next" size={24} color="grey" />
+                        </View>
+                      </View>
+                    </Pressable>
                   </View>
                 </View>
-                <Text style={styles.notificationBell}>!</Text>
+                <View style={styles.notifyBox}>
+                  <View style={styles.notifyContent}>
+                    <Pressable>
+                      <View style={styles.notifyHead}>
+                        <Image
+                          source={{
+                            uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
+                          }}
+                          style={{width: 45, height: 45, borderRadius: 25}}
+                        />
+                        <Text style={{fontSize: 18, fontWeight: 'bold'}}>Account Creation!</Text>
+                      </View>
+                      <View style={styles.notifyMessage}>
+                        <Text numberOfLines={3} ellipsizeMode='tail' style={styles.notifyText}>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                          sed do eiusmod tempor incididunt ut labore et dolore 
+                          magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                          exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+                          consequat. Duis aute irure dolor in reprehenderit.
+                        </Text>
+                      </View>
+                      <View style={{borderWidth: 0.25, borderColor: 'grey', marginVertical: 5}}></View>
+                      <View style={styles.notifyMore}>
+                        <View style={styles.notifyTimer}>
+                          <Text style={{fontWeight: 'bold', color: 'grey'}}>Yesterday: 08:17pm</Text>
+                        </View>
+                        <View style={styles.notifyMoreInfo}>
+                          <Text style={{fontWeight: 'bold', color: 'grey'}}>View</Text>
+                          <MaterialIcons name="navigate-next" size={24} color="grey" />
+                        </View>
+                      </View>
+                    </Pressable>
+                  </View>
+                  <Text style={styles.notificationBell}>!</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -153,6 +232,10 @@ const styles = StyleSheet.create({
     color: 'grey',
     fontWeight: 'bold',
   },
+  nofificationContent: {
+    width: '100%',
+    gap: 20,
+  },
   notifyBox: {
     width: '100%',
     backgroundColor: '#fff',
@@ -177,7 +260,16 @@ const styles = StyleSheet.create({
   notifyText: {
     fontSize: 16,
     color: 'grey',
-  }
+  },
+  notifyMore: {
+    flexDirection: 'row',
+    justifyContent:'space-between',
+    alignItems: 'center',
+  },
+  notifyMoreInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });
 
 export default NotificationScreen;
