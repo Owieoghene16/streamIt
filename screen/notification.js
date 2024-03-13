@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: 'grey',
     fontWeight: 'bold',
-  }
+  },
 });
 
 export default NotificationScreen;

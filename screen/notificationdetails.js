@@ -67,6 +67,9 @@ const NotificationDetails = ({ navigation }) => {
                           magna aliqua Ut enim ad minim veniam, quis nostrud 
                           exercitation ullamco laboris nisi ut aliquip ex ea commodo 
                           consequat. Duis aute irure dolor in reprehenderit
+                          magna aliqua Ut enim ad minim veniam, quis nostrud 
+                          exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+                          consequat. Duis aute irure dolor in reprehenderit.
                         </Text>
                       </View>
                     </Pressable>
@@ -232,6 +235,18 @@ const styles = StyleSheet.create({
     borderColor: 'grey',
     width: '45%',
     height: 0.25,
+  },
+  footerEnd: {
+    width: '100%',
+    marginVertical: 50,
+    flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent:'center',
+  },
+  footerText: {
+    fontSize: 15,
+    color: 'grey',
+    fontWeight: 'bold',
   },
 });
 
