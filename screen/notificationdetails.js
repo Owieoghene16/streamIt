@@ -10,7 +10,7 @@ import { Entypo } from '@expo/vector-icons';
 import Footer from '../components/footer';
 import { StyleSheet, View, Text, Image, StatusBar, Pressable, SafeAreaView, Button, FlatList, ScrollView, TextInput } from 'react-native';
 
-const NotificationScreen = ({ navigation }) => {
+const NotificationDetails = ({ navigation }) => {
   return (
     <>
       <SafeAreaView style={{flex: 1}}>
@@ -41,12 +41,12 @@ const NotificationScreen = ({ navigation }) => {
         <ScrollView> 
           <View style={styles.main}>
             <View style={styles.shopHead}>
-              <Text style={styles.shopHeadText}>Notification</Text>
+              <Pressable style={styles.shopHead}  onPress={() => navigation.navigate('Notification')}>
+                <Ionicons name="arrow-back" size={24} color="white" style={styles.goBack} />
+                <Text style={styles.shopHeadText}>Notification</Text>
+              </Pressable>
             </View>
             <View style={styles.mainContent}>
-              <View style={styles.dateTimer}>
-                <Text style={styles.dateTimerText}>A place to see your activity and transaction notifications</Text>
-              </View>
               <View style={styles.nofificationContent}>
                 <View style={styles.notifyBox}>
                   <View style={styles.notifyContent}>
@@ -61,7 +61,7 @@ const NotificationScreen = ({ navigation }) => {
                         <Text style={{fontSize: 18, fontWeight: 'bold'}}>Account Creation!</Text>
                       </View>
                       <View style={styles.notifyMessage}>
-                        <Text numberOfLines={3} ellipsizeMode='tail' style={styles.notifyText}>
+                        <Text style={styles.notifyText}>
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                           sed do eiusmod tempor incididunt ut labore et dolore 
                           magna aliqua Ut enim ad minim veniam, quis nostrud 
@@ -69,87 +69,18 @@ const NotificationScreen = ({ navigation }) => {
                           consequat. Duis aute irure dolor in reprehenderit
                         </Text>
                       </View>
-                      <View style={{borderWidth: 0.25, borderColor: 'grey', marginVertical: 5}}></View>
-                      <View style={styles.notifyMore}>
-                        <View style={styles.notifyTimer}>
-                          <Text style={{fontWeight: 'bold', color: 'grey'}}>Yesterday: 08:17pm</Text>
-                        </View>
-                        <View style={styles.notifyMoreInfo}>
-                          <Text style={{fontWeight: 'bold', color: 'grey'}}>View</Text>
-                          <MaterialIcons name="navigate-next" size={24} color="grey" />
-                        </View>
-                      </View>
-                    </Pressable>
-                  </View>
-                  <Text style={styles.notificationBell}>!</Text>
-                </View>
-                <View style={styles.notifyBox}>
-                  <View style={styles.notifyContent}>
-                    <Pressable onPress={() => navigation.navigate('NotificationDetails')}>
-                      <View style={styles.notifyHead}>
-                        <Image
-                          source={{
-                            uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
-                          }}
-                          style={{width: 45, height: 45, borderRadius: 25}}
-                        />
-                        <Text style={{fontSize: 18, fontWeight: 'bold'}}>Account Creation!</Text>
-                      </View>
-                      <View style={styles.notifyMessage}>
-                        <Text numberOfLines={3} ellipsizeMode='tail' style={styles.notifyText}>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </Text>
-                      </View>
-                      <View style={{borderWidth: 0.25, borderColor: 'grey', marginVertical: 5}}></View>
-                      <View style={styles.notifyMore}>
-                        <View style={styles.notifyTimer}>
-                          <Text style={{fontWeight: 'bold', color: 'grey'}}>Yesterday: 08:17pm</Text>
-                        </View>
-                        <View style={styles.notifyMoreInfo}>
-                          <Text style={{fontWeight: 'bold', color: 'grey'}}>View</Text>
-                          <MaterialIcons name="navigate-next" size={24} color="grey" />
-                        </View>
-                      </View>
                     </Pressable>
                   </View>
                 </View>
-                <View style={styles.notifyBox}>
-                  <View style={styles.notifyContent}>
-                    <Pressable onPress={() => navigation.navigate('NotificationDetails')}>
-                      <View style={styles.notifyHead}>
-                        <Image
-                          source={{
-                            uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
-                          }}
-                          style={{width: 45, height: 45, borderRadius: 25}}
-                        />
-                        <Text style={{fontSize: 18, fontWeight: 'bold'}}>Account Creation!</Text>
-                      </View>
-                      <View style={styles.notifyMessage}>
-                        <Text numberOfLines={3} ellipsizeMode='tail' style={styles.notifyText}>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                          sed do eiusmod tempor incididunt ut labore et dolore 
-                          magna aliqua Ut enim ad minim veniam, quis nostrud.
-                        </Text>
-                      </View>
-                      <View style={{borderWidth: 0.25, borderColor: 'grey', marginVertical: 5}}></View>
-                      <View style={styles.notifyMore}>
-                        <View style={styles.notifyTimer}>
-                          <Text style={{fontWeight: 'bold', color: 'grey'}}>Yesterday: 08:17pm</Text>
-                        </View>
-                        <View style={styles.notifyMoreInfo}>
-                          <Text style={{fontWeight: 'bold', color: 'grey'}}>View</Text>
-                          <MaterialIcons name="navigate-next" size={24} color="grey" />
-                        </View>
-                      </View>
-                    </Pressable>
-                  </View>
-                  <Text style={styles.notificationBell}>!</Text>
+                <View style={styles.notifyEnd}>
+                  <Text style={styles.notifyBorderLeft}></Text>
+                  <Text style={styles.notifyEndText}>END</Text>
+                  <Text style={styles.notifyBorderRight}></Text>
+                </View>
+                <View style={styles.footerEnd}>
+                  <Text style={styles.footerText}>Licensed By {''}<Text style={{color: 'skyblue'}}>Kindness{' '}</Text><Text style={{color: 'green'}}>Okpugie</Text></Text>
                 </View>
               </View>
-            </View>
-            <View style={styles.footerEnd}>
-              <Text style={styles.footerText}>Licensed By {''}<Text style={{color: 'skyblue'}}>Kindness{' '}</Text><Text style={{color: 'green'}}>Okpugie</Text></Text>
             </View>
           </View>
         </ScrollView>
@@ -162,7 +93,6 @@ const NotificationScreen = ({ navigation }) => {
     </>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 0.920, 
@@ -212,6 +142,8 @@ const styles = StyleSheet.create({
   shopHead: {
     width: '100%',
     height: 40,
+    position: 'relative',
+    flexDirection: 'row',
     backgroundColor: '#cce7d0',
     justifyContent: 'center',
     alignItems: 'center',
@@ -221,8 +153,14 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
   },
+  goBack: {
+    position: 'absolute',
+    top: 10,
+    left: 15,
+  },
   mainContent: {
     width: '100%',
+    marginTop: 20,
     paddingHorizontal: 15,
   },
   dateTimer: {
@@ -271,18 +209,30 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  footerEnd: {
-    width: '100%',
-    marginVertical: 50,
+  notifyEnd: {
+    marginVertical: 40,
     flexDirection: 'row',
-    alignContent: 'center',
-    justifyContent:'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 3,
   },
-  footerText: {
-    fontSize: 15,
+  notifyEndText: {
+    fontSize: 17,
     color: 'grey',
     fontWeight: 'bold',
-  }
+  },
+  notifyBorderLeft: {
+    borderWidth: 0.25,
+    borderColor: 'grey',
+    width: '45%',
+    height: 0.25,
+  },
+  notifyBorderRight: {
+    borderWidth: 0.25,
+    borderColor: 'grey',
+    width: '45%',
+    height: 0.25,
+  },
 });
 
-export default NotificationScreen;
+export default NotificationDetails;
