@@ -64,9 +64,9 @@ const NotificationScreen = ({ navigation }) => {
                         <Text numberOfLines={3} ellipsizeMode='tail' style={styles.notifyText}>
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                           sed do eiusmod tempor incididunt ut labore et dolore 
-                          magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                          magna aliqua Ut enim ad minim veniam, quis nostrud 
                           exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                          consequat. Duis aute irure dolor in reprehenderit.
+                          consequat. Duis aute irure dolor in reprehenderit
                         </Text>
                       </View>
                       <View style={{borderWidth: 0.25, borderColor: 'grey', marginVertical: 5}}></View>
@@ -129,9 +129,7 @@ const NotificationScreen = ({ navigation }) => {
                         <Text numberOfLines={3} ellipsizeMode='tail' style={styles.notifyText}>
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                           sed do eiusmod tempor incididunt ut labore et dolore 
-                          magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                          exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                          consequat. Duis aute irure dolor in reprehenderit.
+                          magna aliqua Ut enim ad minim veniam, quis nostrud.
                         </Text>
                       </View>
                       <View style={{borderWidth: 0.25, borderColor: 'grey', marginVertical: 5}}></View>
@@ -149,6 +147,9 @@ const NotificationScreen = ({ navigation }) => {
                   <Text style={styles.notificationBell}>!</Text>
                 </View>
               </View>
+            </View>
+            <View style={styles.footerEnd}>
+              <Text style={styles.footerText}>Licensed By {''}<Text style={{color: 'skyblue'}}>Kindness{' '}</Text><Text style={{color: 'green'}}>Okpugie</Text></Text>
             </View>
           </View>
         </ScrollView>
@@ -270,6 +271,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  footerEnd: {
+    width: '100%',
+    marginVertical: 50,
+    flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent:'center',
+  },
+  footerText: {
+    fontSize: 15,
+    color: 'grey',
+    fontWeight: 'bold',
+  }
 });
 
 export default NotificationScreen;
