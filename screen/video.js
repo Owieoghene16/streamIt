@@ -372,7 +372,7 @@ const styles = StyleSheet.create({
     height: 20,
     lineHeight: 20,
     zIndex: 10,
-    backgroundColor: '#cce7d0', /* Adjust background color */
+    backgroundColor: 'orange',
     color: 'white', /* Adjust text color */
     fontSize: 12, /* Adjust font size for number */
     textAlign: 'center', /* Center the number inside the badge */

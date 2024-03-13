@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
     height: 20,
     lineHeight: 20,
     zIndex: 10,
-    backgroundColor: '#cce7d0',
+    backgroundColor: 'orange',
     color: 'white',
     fontSize: 12, 
     textAlign: 'center',
