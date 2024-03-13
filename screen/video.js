@@ -44,7 +44,7 @@ const VideoScreen = ({ navigation }) => {
             </Pressable>
           </View>
           <Pressable>
-            <MaterialCommunityIcons name="cart-outline" size={35} color="white" style={styles.cartHeader} />
+            <MaterialIcons name="watch-later" size={35} color="white" style={styles.cartHeader} />
             <Text style={styles.notificationBell}>1</Text>
           </Pressable>
         </View>

@@ -35,17 +35,27 @@ const HomeScreen = ({ navigation }) => {
         <View>
           <Text style={styles.headerLogo}>Owie's PLace</Text>
         </View>
-        <View>
-          <Pressable onPress={() => navigation.navigate('Profile')}>
-              <Image
-                source={{
-                  uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
-                }}
-                style={{width: 45, height: 45, borderRadius: 25}}
-              />
-          </Pressable>
-          <Text style={styles.notificationBell}>1</Text>
-        </View>
+        <View style={{flexDirection: 'row', alignItems: 'center', gap: 5,}}>
+            <View>
+              <MaterialCommunityIcons name="cart-outline" size={35} color="white" style={styles.cartHeader} />
+              <Text style={styles.notificationBell}>4</Text>
+            </View>
+            <View>
+              <MaterialIcons name="watch-later" size={35} color="white" style={styles.cartHeader} />
+              <Text style={styles.notificationBell}>1</Text>
+            </View>
+            <View>
+              <Pressable onPress={() => navigation.navigate('Profile')}>
+                <Image
+                  source={{
+                    uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
+                  }}
+                  style={{width: 45, height: 45, borderRadius: 25}}
+                />
+              </Pressable>
+              <Text style={styles.notificationBell}>1</Text>
+            </View>
+          </View>
       </View>
       <View style={styles.container}>
         <StatusBar

@@ -79,7 +79,7 @@ const ProfileScreen = ({ navigation }) => {
               <Text style={styles.profileHeaderName}>Settings</Text>
             </View>
             <View style={styles.manageAccount}>
-              <Pressable onPress={() => navigation.navigate('Profile')}>
+              <Pressable onPress={() => navigation.navigate('Notification')}>
                 <View style={styles.manage}>
                   <View style={styles.manageIcon}>
                     <View>

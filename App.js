@@ -8,6 +8,7 @@ import VideoScreen from './screen/video';
 import VideoDetails from './screen/videodetails';
 import AccountScreen from './screen/account';
 import ProfileScreen from './screen/profile';
+import NotificationScreen from './screen/notification';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -39,6 +40,9 @@ const App = () => {
         </Stack.Screen>
         <Stack.Screen name="Account">
           {(props) => <AccountScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Notification">
+          {(props) => <NotificationScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
