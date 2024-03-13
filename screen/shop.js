@@ -56,7 +56,7 @@ const ShopScreen = ({navigation}) => {
             <View style={styles.product}>
               {
                 movies.map((item, index) => (
-                  <View style={styles.secondHeader} key={item.id}>
+                  <View style={styles.secondHeader} key={item.key}>
                     <Image
                       source={{
                         uri: 'https://argon-dashboard-nodejs.creative-tim.com/public/img/theme/team-4-800x800.jpg',
@@ -203,7 +203,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 25,
     fontWeight: 'bold',
-    fontFamily: 'monospace',
   },
   mainProduct: {
     width: '100%',
@@ -222,7 +221,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'relative',
     boxSizing: 'border-box',
-    border: '1px solid',
     borderColor: 'skyblue',
     paddingHorizontal: 7,
     paddingVertical: 6,
@@ -254,7 +252,6 @@ const styles = StyleSheet.create({
     height: 50,
     lineHeight: 50,
     backgroundColor: '#cce7d0',
-    border: '1px solid',
     position: 'absolute',
     bottom: 3,
     borderRadius: 20,
@@ -279,7 +276,6 @@ const styles = StyleSheet.create({
     lineHeight: 40,
     textAlign: 'center',
     backgroundColor: 'skyblue',
-    border: '1px solid',
     fontWeight: 'bold',
     color: '#fff',
     marginRight: 5,

@@ -217,6 +217,7 @@ const styles = StyleSheet.create({
     top: -5, /* Adjust position from the top */
     right: -5, /* Adjust position from the right */
     borderRadius: 20,
+    overflow: 'hidden',
     width: 20,
     height: 20,
     lineHeight: 20,
@@ -340,6 +341,7 @@ const styles = StyleSheet.create({
     height: 50,
     lineHeight: 50,
     backgroundColor: '#333',
+    overflow: 'hidden',
     borderRadius: 20,
     textAlign: 'center',
   },
@@ -349,6 +351,7 @@ const styles = StyleSheet.create({
     lineHeight: 50,
     backgroundColor: '#fff',
     borderRadius: 20,
+    overflow: 'hidden',
     textAlign: 'center',
   },
   videoNameHead: {
@@ -441,6 +444,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 3,
     borderRadius: 20,
+    overflow: 'hidden',
     textAlign: 'center',
     right: 1,
   }

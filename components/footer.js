@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     width: 60,
     alignItems: 'center',
-    fontFamily: 'monospace',
     backgroundColor: '#cce7d0',
   },
 });

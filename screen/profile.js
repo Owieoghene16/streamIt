@@ -62,7 +62,7 @@ const ProfileScreen = ({ navigation }) => {
               <Text style={styles.profileHeaderName}>Profile</Text>
             </View>
             <View style={styles.manageAccount}>
-              <Pressable onPress={() => navigation.navigate('Profile')}>
+              <Pressable onPress={() => navigation.navigate('Account')}>
                 <View style={styles.manage}>
                   <View style={styles.manageIcon}>
                     <View>
@@ -154,7 +154,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -5,
     right: -5,
-    borderRadius: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
     width: 20,
     height: 20,
     lineHeight: 20,
@@ -168,7 +169,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -5,
     right: -5,
-    borderRadius: 20,
+    overflow: 'hidden',
+    borderRadius: 10,
     width: 20,
     height: 20,
     lineHeight: 20,
@@ -250,20 +252,22 @@ const styles = StyleSheet.create({
     height: 50,
     lineHeight: 50,
     backgroundColor: '#cce7d0',
-    borderRadius: 50,
+    borderRadius: 25,
+    overflow: 'hidden',
     textAlign: 'center',
   },
   signOut: {
     marginVertical: 40,
   },
   signOutText: {
-    width: 150,
-    height: 60,
-    lineHeight: 60,
-    backgroundColor: 'skyblue',
-    borderRadius: 50,
+    width: 120,
+    height: 50,
+    lineHeight: 50,
+    overflow: 'hidden',
+    borderRadius: 10,
     textAlign: 'center',
-    fontSize: 18,
+    backgroundColor: 'skyblue',
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#111',
   },
