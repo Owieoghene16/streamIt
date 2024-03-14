@@ -33,12 +33,16 @@ const VideoDetails = ({navigation}) => {
   const [status, setStatus] = React.useState({});
   const onFullscreenUpdate = async ({fullscreenUpdate}) => {
     console.log(fullscreenUpdate, 'fullscreen update');
-    if (fullscreenUpdate === VideoFullscreenUpdate.PLAYER_DID_PRESENT) {
-      console.log('fullscreen present')
+    if (fullscreenUpdate == 0) {
+      console.log('if running');
       await ScreenOrientation.unlockAsync();
-    } else if (fullscreenUpdate === VideoFullscreenUpdate.PLAYER_WILL_DISMISS) {
-      console.log('fullscreen portrait')
+    } else if (fullscreenUpdate == 2) {
+      console.log('elseee---if running');
       await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+    } else {
+      console.log('fullscreen present')
+      console.log('elseee running');
+      await ScreenOrientation.unlockAsync();
     }
   };
   return (
