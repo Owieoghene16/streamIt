@@ -8,9 +8,11 @@ import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import Footer from '../components/footer';
+import VideoLoadingSkeleton from '../components/videoloadingskeleton';
 import { StyleSheet, View, Text, Image, StatusBar, Pressable, SafeAreaView, TextInput, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 
 const VideoScreen = ({ navigation }) => {
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [movies, setMovies] = useState([
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/dqK9Hag1054tghRQSqLSfrkvQnA.jpg', key: 1 },
@@ -81,111 +83,59 @@ const VideoScreen = ({ navigation }) => {
             </View>
           </View>
           <View style={styles.thirdRow}>
-            <View style={styles.thirdDiv}>
-              <FlatList 
-                horizontal
-                showsHorizontalScrollIndicator={true}
-                data={data}
-                renderItem={({item}) => (
-                  <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
-                  <View style={styles.videoCont}>
-                    <Image
-                      source={{
-                        uri: `https://image.tmdb.org/t/p/w500${item?.poster_path}`,
-                      }}
-                      style={{width: '100%', height: "100%", borderRadius: 20}}
-                    />
-                    <View style={styles.videoHead}>
-                      <View style={styles.videoFirst}>
-                        <View style={styles.videoHeadLeft}>
-                          <FontAwesome name="play" size={24} color="black" style={styles.videoIconTwo} />
-                          <AntDesign name="like2" size={24} color="skyblue" style={styles.videoIcon} />
+              {
+                loading 
+                ? <VideoLoadingSkeleton />
+                : 
+                <View style={styles.thirdDiv}>
+                  <FlatList 
+                    horizontal
+                    showsHorizontalScrollIndicator={true}
+                    data={data}
+                    renderItem={({item}) => (
+                      <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
+                      <View style={styles.videoCont}>
+                        <Image
+                          source={{
+                            uri: `https://image.tmdb.org/t/p/w500${item?.poster_path}`,
+                          }}
+                          style={{width: '100%', height: "100%", borderRadius: 20}}
+                        />
+                        <View style={styles.videoHead}>
+                          <View style={styles.videoFirst}>
+                            <View style={styles.videoHeadLeft}>
+                              <FontAwesome name="play" size={24} color="black" style={styles.videoIconTwo} />
+                              <AntDesign name="like2" size={24} color="skyblue" style={styles.videoIcon} />
+                            </View>
+                            <View style={styles.videoHeadRight}>
+                              <Entypo name="chevron-thin-down" size={24} color="skyblue" style={styles.videoIcon} />
+                            </View>
+                          </View>
+                          <View style={styles.videoNameHead}>
+                            <Text numberOfLines={1} ellipsizeMode='tail' style={styles.videoName}>{item.original_title}</Text>
+                          </View>
+                          <View style={styles.info}>
+                            <Pressable style={styles.infoButton}>
+                              <Text style={styles.infoButtonText}>18+</Text>
+                            </Pressable>
+                            <Text style={styles.infoName}>4 season</Text>
+                            <Pressable style={styles.infoButton}>
+                              <Text style={styles.infoButtonText}>HD</Text>
+                            </Pressable>
+                          </View>
+                          <View style={styles.type}>
+                            <Text style={styles.typeName}>Scifi</Text>
+                            <Text style={styles.typeName}>Action</Text>
+                            <Text style={styles.typeName}>Adventure</Text>
+                          </View>
                         </View>
-                        <View style={styles.videoHeadRight}>
-                          <Entypo name="chevron-thin-down" size={24} color="skyblue" style={styles.videoIcon} />
-                        </View>
                       </View>
-                      <View style={styles.videoNameHead}>
-                        <Text numberOfLines={1} ellipsizeMode='tail' style={styles.videoName}>{item.original_title}</Text>
-                      </View>
-                      <View style={styles.info}>
-                        <Pressable style={styles.infoButton}>
-                          <Text style={styles.infoButtonText}>18+</Text>
-                        </Pressable>
-                        <Text style={styles.infoName}>4 season</Text>
-                        <Pressable style={styles.infoButton}>
-                          <Text style={styles.infoButtonText}>HD</Text>
-                        </Pressable>
-                      </View>
-                      <View style={styles.type}>
-                        <Text style={styles.typeName}>Scifi</Text>
-                        <Text style={styles.typeName}>Action</Text>
-                        <Text style={styles.typeName}>Adventure</Text>
-                      </View>
-                    </View>
-                  </View>
-                  </TouchableOpacity>
-                )}
-              />
+                      </TouchableOpacity>
+                    )}
+                  />
+                </View>
+              }
             </View>
-          </View>
-          <View style={styles.firstRow}>
-            <View style={styles.firstHeader}>
-              <Text style={styles.mainText}>Testinggggggggg</Text>
-              <Entypo name="arrow-down" size={24} color="white" />
-            </View>
-          </View>
-          <View style={styles.thirdRow}>
-            <View style={styles.thirdDiv}>
-              <FlatList 
-                horizontal
-                showsHorizontalScrollIndicator={true}
-                data={movies}
-                renderItem={({item}) => (
-                  <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
-                  <View style={styles.videoContLoading}>
-                    <View style={{width: '100%', height: "100%", borderRadius: 20, backgroundColor: 'hsl(204, 8%, 86%)'}}>
-                    </View>
-                    <View style={styles.videoHead}>
-                      <View style={styles.videoFirst}>
-                        <View style={styles.videoHeadLeft}>
-                          <View style={{width: 50, height: 50, borderRadius: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
-                          </View>
-                          <View style={{width: 50, height: 50, borderRadius: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
-                          </View>
-                        </View>
-                        <View style={styles.videoHeadRight}>
-                          <View style={{width: 50, height: 50, borderRadius: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
-                          </View>
-                        </View>
-                      </View>
-                      <View style={styles.videoNameHead}>
-                        <View style={{width: '100%', height: 32, borderRadius: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
-                        </View>
-                      </View>
-                      <View style={styles.info}>
-                          <View style={{width: 40, height: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
-                          </View>
-                          <View style={{width: 80, height: 20, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
-                          </View>
-                          <View style={{width: 40, height: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
-                          </View>
-                      </View>
-                      <View style={styles.type}>
-                          <View style={{width: 50, height: 18, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
-                          </View>
-                          <View style={{width: 50, height: 18, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
-                          </View>
-                          <View style={{width: 50, height: 18, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
-                          </View>
-                      </View>
-                    </View>
-                  </View>
-                  </TouchableOpacity>
-                )}
-              />
-            </View>
-          </View>
           <View style={styles.firstRow}>
             <View style={styles.firstHeader}>
               <Text style={styles.mainText}>Top Videos</Text>
@@ -244,61 +194,6 @@ const VideoScreen = ({ navigation }) => {
           <View style={styles.firstRow}>
             <View style={styles.firstHeader}>
               <Text style={styles.mainText}>Sitcom</Text>
-              <Entypo name="arrow-down" size={24} color="white" />
-            </View>
-          </View>
-          <View style={styles.thirdRow}>
-            <View style={styles.thirdDiv}>
-              <FlatList 
-                horizontal
-                showsHorizontalScrollIndicator={true}
-                data={movies}
-                renderItem={({item}) => (
-                  <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
-                  <View style={styles.videoCont}>
-                    <Image
-                      source={{
-                        uri: item?.imageUrl,
-                      }}
-                      style={{width: '100%', height: "100%", borderRadius: 20}}
-                    />
-                    <View style={styles.videoHead}>
-                      <View style={styles.videoFirst}>
-                        <View style={styles.videoHeadLeft}>
-                          <FontAwesome name="play" size={24} color="black" style={styles.videoIconTwo} />
-                          <AntDesign name="like2" size={24} color="skyblue" style={styles.videoIcon} />
-                        </View>
-                        <View style={styles.videoHeadRight}>
-                          <Entypo name="chevron-thin-down" size={24} color="skyblue" style={styles.videoIcon} />
-                        </View>
-                      </View>
-                      <View style={styles.videoNameHead}>
-                        <Text numberOfLines={1} ellipsizeMode='tail' style={styles.videoName}>Video Name</Text>
-                      </View>
-                      <View style={styles.info}>
-                        <Pressable style={styles.infoButton}>
-                          <Text style={styles.infoButtonText}>18+</Text>
-                        </Pressable>
-                        <Text style={styles.infoName}>4 season</Text>
-                        <Pressable style={styles.infoButton}>
-                          <Text style={styles.infoButtonText}>HD</Text>
-                        </Pressable>
-                      </View>
-                      <View style={styles.type}>
-                        <Text style={styles.typeName}>Scifi</Text>
-                        <Text style={styles.typeName}>Action</Text>
-                        <Text style={styles.typeName}>Adventure</Text>
-                      </View>
-                    </View>
-                  </View>
-                  </TouchableOpacity>
-                )}
-              />
-            </View>
-          </View>
-          <View style={styles.firstRow}>
-            <View style={styles.firstHeader}>
-              <Text style={styles.mainText}>Kids</Text>
               <Entypo name="arrow-down" size={24} color="white" />
             </View>
           </View>
@@ -495,21 +390,10 @@ const styles = StyleSheet.create({
     position: 'relative',
     boxSizing: 'border-box',
     borderColor: 'skyblue',
-    paddingHorizontal: 7,
-    paddingVertical: 6,
+    paddingHorizontal: 4,
+    paddingVertical: 4,
     borderRadius: 25,
     borderWidth: 1,
-    width: 310,
-    height: 310,
-    marginLeft: 3,
-    marginRight: 12,
-  },
-  videoContLoading: {
-    position: 'relative',
-    boxSizing: 'border-box',
-    borderColor: 'hsl(184, 6%, 81%)',
-    borderRadius: 25,
-    borderWidth: 4,
     width: 310,
     height: 310,
     marginLeft: 3,
