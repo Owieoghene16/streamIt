@@ -41,7 +41,10 @@ const NotificationScreen = ({ navigation }) => {
         <ScrollView> 
           <View style={styles.main}>
             <View style={styles.shopHead}>
-              <Text style={styles.shopHeadText}>Notification</Text>
+              <Pressable style={styles.shopHead}  onPress={() => navigation.navigate('Profile')}>
+                <Ionicons name="arrow-back" size={24} color="white" style={styles.goBack} />
+                <Text style={styles.shopHeadText}>Notification</Text>
+              </Pressable>
             </View>
             <View style={styles.mainContent}>
               <View style={styles.dateTimer}>
@@ -220,6 +223,11 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 25,
     fontWeight: 'bold',
+  },
+  goBack: {
+    position: 'absolute',
+    top: 10,
+    left: 15,
   },
   mainContent: {
     width: '100%',

@@ -8,6 +8,8 @@ import VideoScreen from './screen/video';
 import VideoDetails from './screen/videodetails';
 import AccountScreen from './screen/account';
 import ProfileScreen from './screen/profile';
+import CartScreen from './screen/cart';
+import VideoDemo from './screen/videodemo';
 import NotificationScreen from './screen/notification';
 import NotificationDetails from './screen/notificationdetails';
 
@@ -47,6 +49,12 @@ const App = () => {
         </Stack.Screen>
         <Stack.Screen name="NotificationDetails">
           {(props) => <NotificationDetails {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Cart">
+          {(props) => <CartScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="VideoDemo">
+          {(props) => <VideoDemo {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
