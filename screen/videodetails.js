@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
@@ -8,9 +8,11 @@ import { Entypo } from '@expo/vector-icons';
 import Footer from '../components/footer';
 import { Octicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Video, ResizeMode } from 'expo-av';
 import { StyleSheet, View, Text, Image, StatusBar, TouchableWithoutFeedback, SafeAreaView, Pressable, FlatList, ScrollView, TextInput, Button } from 'react-native';
 
 const VideoDetails = ({navigation}) => {
+  const [clicked, setClicked] = useState(true)
   const [genres, setGenres] = useState([
     { key: 1, name: 'Action' },
     { key: 2, name: 'Adventure' },
@@ -27,6 +29,22 @@ const VideoDetails = ({navigation}) => {
     { key: 13, name: 'Music' },
     { key: 14, name: 'Musical' },
   ]);
+  const video = useRef(null);
+  const [status, setStatus] = React.useState({});
+  const onFullscreenUpdate = async ({fullscreenUpdate}) => {
+    console.log(fullscreenUpdate, 'fullscreen update');
+    if (fullscreenUpdate == 0) {
+      console.log('if running');
+      await ScreenOrientation.unlockAsync();
+    } else if (fullscreenUpdate == 2) {
+      console.log('elseee---if running');
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+    } else {
+      console.log('fullscreen present')
+      console.log('elseee running');
+      await ScreenOrientation.unlockAsync();
+    }
+  };
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.header}>
@@ -57,20 +75,39 @@ const VideoDetails = ({navigation}) => {
         <ScrollView> 
           <View style={styles.main}>
             <View style={styles.videoShow}>
-              <View style={styles.secondHeader}>
-                <Image
-                  source={{
-                    uri: 'https://image.tmdb.org/t/p/w1280/meyhnvssZOPPjud4F1CjOb4snET.jpg',
-                  }}
-                  style={{width: '100%', height: '100%', borderRadius: 20}}
-                />
-                <View style={styles.imageText}>
-                  <View style={styles.imageTextHeader}>
-                    <FontAwesome name="play" size={35} color="white" style={styles.playButton} />
-                    <Text style={styles.imageTextName}>Watch Trailer</Text>
-                  </View>
-                </View>
-              </View>
+              {
+                clicked 
+                  ? 
+                  <View style={styles.secondHeader}>
+                    <Image
+                      source={{
+                        uri: 'https://image.tmdb.org/t/p/w1280/meyhnvssZOPPjud4F1CjOb4snET.jpg',
+                      }}
+                      style={{width: '100%', height: '100%', borderRadius: 20}}
+                    />
+                    <View style={styles.imageText}>
+                      <Pressable onPress={()=> setClicked(!clicked)}>
+                      <View style={styles.imageTextHeader}>
+                        <FontAwesome name="play" size={35} color="white" style={styles.playButton} />
+                        <Text style={styles.imageTextName}>Watch Trailer</Text>
+                      </View>
+                      </Pressable>
+                    </View>
+                  </View>  
+                  : <Video
+                    ref={video}
+                    style={styles.video}
+                    source={{
+                      uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                    }}
+                    useNativeControls
+                    shouldPlay={true}
+                    resizeMode={'cover'}
+                    isLooping={true}
+                    onFullscreenUpdate={onFullscreenUpdate}
+                    onPlaybackStatusUpdate={status => setStatus(() => status)}
+                  />
+              }
             </View>
             <View style={styles.productContent}>
               <View style={styles.productNameHeader}>
@@ -221,6 +258,11 @@ const styles = StyleSheet.create({
   },
   main: {
     width: '100%',
+  },
+  video: {
+    alignSelf: 'center',
+    width: '100%',
+    height: 320,
   },
   videoShow: {
     display: 'flex',

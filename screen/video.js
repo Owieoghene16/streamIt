@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
@@ -11,13 +11,7 @@ import Footer from '../components/footer';
 import { StyleSheet, View, Text, Image, StatusBar, Pressable, SafeAreaView, TextInput, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 
 const VideoScreen = ({ navigation }) => {
-  const [data, setData] = useState([
-    { text: 'Wake up early', key: 1 },
-    { text: 'Come to the office', key: 2 },
-    { text: 'Drive back home', key: 3 },
-    { text: 'Eat well', key: 4 },
-    { text: 'Code well', key: 5 },
-  ]);
+  const [data, setData] = useState([]);
   const [movies, setMovies] = useState([
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/dqK9Hag1054tghRQSqLSfrkvQnA.jpg', key: 1 },
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg', key: 2 },
@@ -28,6 +22,23 @@ const VideoScreen = ({ navigation }) => {
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/3Kzc6V4MWs3RXCmE5DhAYnfWL8F.jpg', key: 7 },
     { imageUrl: 'https://image.tmdb.org/t/p/w1280/ehumsuIBbgAe1hg343oszCLrAfI.jpg', key: 8 },
   ]);
+  const options = {
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/movie/popular?api_key=b991de6ee9dc8e55c2bcc7a20cc0a756',  
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOTkxZGU2ZWU5ZGM4ZTU1YzJiY2M3YTIwY2MwYTc1NiIsInN1YiI6IjY1MDA1YTFiZDdkY2QyMDBhY2IwNDVhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xk2gatk5wsYEPGcosnmfqzG0Pp9UbOCdEUIr2zOG2TU'
+    }
+  };
+  const fetchData = async () => {
+    const resp = await fetch(options.url, options);
+    const data = await resp.json();
+    setData(data.results);
+    setLoading(false);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   
   return (
     <>
@@ -45,7 +56,7 @@ const VideoScreen = ({ navigation }) => {
           </View>
           <Pressable>
             <MaterialIcons name="watch-later" size={35} color="white" style={styles.cartHeader} />
-            <Text style={styles.notificationBell}>1</Text>
+            <Text style={styles.notificationBell}>3</Text>
           </Pressable>
         </View>
       </View>
@@ -74,13 +85,13 @@ const VideoScreen = ({ navigation }) => {
               <FlatList 
                 horizontal
                 showsHorizontalScrollIndicator={true}
-                data={movies}
+                data={data}
                 renderItem={({item}) => (
                   <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
                   <View style={styles.videoCont}>
                     <Image
                       source={{
-                        uri: item?.imageUrl,
+                        uri: `https://image.tmdb.org/t/p/w500${item?.poster_path}`,
                       }}
                       style={{width: '100%', height: "100%", borderRadius: 20}}
                     />
@@ -95,7 +106,7 @@ const VideoScreen = ({ navigation }) => {
                         </View>
                       </View>
                       <View style={styles.videoNameHead}>
-                        <Text numberOfLines={1} ellipsizeMode='tail' style={styles.videoName}>Video Name</Text>
+                        <Text numberOfLines={1} ellipsizeMode='tail' style={styles.videoName}>{item.original_title}</Text>
                       </View>
                       <View style={styles.info}>
                         <Pressable style={styles.infoButton}>
@@ -110,6 +121,63 @@ const VideoScreen = ({ navigation }) => {
                         <Text style={styles.typeName}>Scifi</Text>
                         <Text style={styles.typeName}>Action</Text>
                         <Text style={styles.typeName}>Adventure</Text>
+                      </View>
+                    </View>
+                  </View>
+                  </TouchableOpacity>
+                )}
+              />
+            </View>
+          </View>
+          <View style={styles.firstRow}>
+            <View style={styles.firstHeader}>
+              <Text style={styles.mainText}>Testinggggggggg</Text>
+              <Entypo name="arrow-down" size={24} color="white" />
+            </View>
+          </View>
+          <View style={styles.thirdRow}>
+            <View style={styles.thirdDiv}>
+              <FlatList 
+                horizontal
+                showsHorizontalScrollIndicator={true}
+                data={movies}
+                renderItem={({item}) => (
+                  <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
+                  <View style={styles.videoContLoading}>
+                    <View style={{width: '100%', height: "100%", borderRadius: 20, backgroundColor: 'hsl(204, 8%, 86%)'}}>
+                    </View>
+                    <View style={styles.videoHead}>
+                      <View style={styles.videoFirst}>
+                        <View style={styles.videoHeadLeft}>
+                          <View style={{width: 50, height: 50, borderRadius: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                          </View>
+                          <View style={{width: 50, height: 50, borderRadius: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                          </View>
+                        </View>
+                        <View style={styles.videoHeadRight}>
+                          <View style={{width: 50, height: 50, borderRadius: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                          </View>
+                        </View>
+                      </View>
+                      <View style={styles.videoNameHead}>
+                        <View style={{width: '100%', height: 32, borderRadius: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                        </View>
+                      </View>
+                      <View style={styles.info}>
+                          <View style={{width: 40, height: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                          </View>
+                          <View style={{width: 80, height: 20, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                          </View>
+                          <View style={{width: 40, height: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                          </View>
+                      </View>
+                      <View style={styles.type}>
+                          <View style={{width: 50, height: 18, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                          </View>
+                          <View style={{width: 50, height: 18, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                          </View>
+                          <View style={{width: 50, height: 18, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                          </View>
                       </View>
                     </View>
                   </View>
@@ -426,12 +494,22 @@ const styles = StyleSheet.create({
   videoCont: {
     position: 'relative',
     boxSizing: 'border-box',
-    border: '1px solid',
     borderColor: 'skyblue',
     paddingHorizontal: 7,
     paddingVertical: 6,
     borderRadius: 25,
     borderWidth: 1,
+    width: 310,
+    height: 310,
+    marginLeft: 3,
+    marginRight: 12,
+  },
+  videoContLoading: {
+    position: 'relative',
+    boxSizing: 'border-box',
+    borderColor: 'hsl(184, 6%, 81%)',
+    borderRadius: 25,
+    borderWidth: 4,
     width: 310,
     height: 310,
     marginLeft: 3,

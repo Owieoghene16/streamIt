@@ -32,7 +32,7 @@ const ShopDetails = ({navigation}) => {
               <Octicons name="search" size={24} color="white" />
             </Pressable>
           </View>
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate('Cart')}>
             <MaterialCommunityIcons name="cart-outline" size={35} color="white" style={styles.cartHeader} />
             <Text style={styles.notificationBell}>1</Text>
           </Pressable>
