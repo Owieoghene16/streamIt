@@ -10,7 +10,7 @@ import { Octicons } from '@expo/vector-icons';
 import Footer from '../components/footer';
 import VideoLoadingSkeleton from '../components/videoloadingskeleton';
 import { RadioButton } from 'react-native-paper';
-import { StyleSheet, ImageBackground, View, Text, Checkbox, StatusBar, Pressable, SafeAreaView, TextInput, FlatList, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, ImageBackground, View, Text, Image, StatusBar, Pressable, SafeAreaView, TextInput, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 
 const SignupScreen = ({ navigation }) => {
   return (
@@ -30,6 +30,26 @@ const SignupScreen = ({ navigation }) => {
                 <View style={styles.mainHeader}>
                   <View style={styles.headerName}>
                     <Text style={{color: '#fff', fontSize: 35, fontWeight: 900}}>Sign Up</Text>
+                  </View>
+                  <View style={styles.socialSignup}>
+                    <View style={styles.socialGoogle}>
+                      <Image
+                        source={{
+                          uri: 'https://cdn-icons-png.flaticon.com/512/300/300221.png',
+                        }}
+                        style={{width: 35, height: 35}}
+                      />
+                      <Text style={{color: '#000', fontSize: 21, fontWeight: 'bold'}}>Google</Text>
+                    </View>
+                    <View style={styles.socialFacebook}>
+                      <Image
+                        source={{
+                          uri: 'https://cdn-icons-png.flaticon.com/512/5968/5968764.png',
+                        }}
+                        style={{width: 35, height: 35}}
+                      />
+                      <Text style={{color: '#fff', fontSize: 21, fontWeight: 'bold'}}>Facebook</Text>
+                    </View>
                   </View>
                   <View style={styles.inputHeader}>
                     <View style={styles.inputBox}>
@@ -82,7 +102,8 @@ const SignupScreen = ({ navigation }) => {
                   <View style={styles.signupBox}>
                     <RadioButton
                       value="first"
-                      status={'unchecked'}
+                      status='checked'
+                      color='skyblue'
                     />
                     <Text style={styles.signupButtonText}>Remember Me</Text>
                   </View>
@@ -90,6 +111,10 @@ const SignupScreen = ({ navigation }) => {
                     <Pressable style={styles.signupButton}>
                       <Text style={styles.signupButtonText}>Sign Up</Text>
                     </Pressable>
+                  </View>
+                  <View style={styles.loginLinkBox}>
+                    <Text style={{color: '#fff', fontSize: 16, fontWeight: 'bold'}}>Have an Account?</Text>
+                    <Text style={{color: 'skyblue', fontSize: 22, fontWeight: 'bold'}}>Login</Text>
                   </View>
                 </View>
               </View>
@@ -107,21 +132,26 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     flex: 1,
-    height: '100%',
-    justifyContent: 'center',
-  },
-  main: {
     width: '100%',
     height: '100%',
-    position: 'relative',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  main: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
   },
   mainHeader: {
     paddingHorizontal: 7,
     flexDirection: 'column',
+    borderRadius: 20,
     gap: 10,
   },
   headerName: {
     width: '100%',
+    marginVertical: 60,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -166,8 +196,44 @@ const styles = StyleSheet.create({
   signupButtonText: {
     color: '#fff',
     fontSize: 20,
-
-  }
+  },
+  signupBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    gap: 5,
+  },
+  loginLinkBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    width: '100%',
+  },
+  socialSignup: {
+    marginBottom: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  socialGoogle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '48%',
+    height: 50,
+    gap: 10,
+    backgroundColor: '#fff',
+  },
+  socialFacebook: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '48%',
+    height: 50,
+    gap: 10,
+    backgroundColor: '#1DA1F2',
+  },
 });
 
 export default SignupScreen;
