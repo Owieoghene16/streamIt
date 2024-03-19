@@ -29,27 +29,7 @@ const LoginScreen = ({ navigation }) => {
               <View style={styles.main}>
                 <View style={styles.mainHeader}>
                   <View style={styles.headerName}>
-                    <Text style={{color: '#fff', fontSize: 35, fontWeight: 900}}>Sign Up</Text>
-                  </View>
-                  <View style={styles.socialSignup}>
-                    <View style={styles.socialGoogle}>
-                      <Image
-                        source={{
-                          uri: 'https://cdn-icons-png.flaticon.com/512/300/300221.png',
-                        }}
-                        style={{width: 35, height: 35}}
-                      />
-                      <Text style={{color: '#000', fontSize: 21, fontWeight: 'bold'}}>Google</Text>
-                    </View>
-                    <View style={styles.socialFacebook}>
-                      <Image
-                        source={{
-                          uri: 'https://cdn-icons-png.flaticon.com/512/5968/5968764.png',
-                        }}
-                        style={{width: 35, height: 35}}
-                      />
-                      <Text style={{color: '#fff', fontSize: 21, fontWeight: 'bold'}}>Facebook</Text>
-                    </View>
+                    <Text style={{color: '#fff', fontSize: 35, fontWeight: 900}}>Login</Text>
                   </View>
                   <View style={styles.inputHeader}>
                     <View style={styles.inputBox}>
@@ -114,6 +94,10 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   mainHeader: {
+    width: '100%',
+    marginVertical: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingHorizontal: 7,
     flexDirection: 'column',
     borderRadius: 20,
@@ -121,7 +105,8 @@ const styles = StyleSheet.create({
   },
   headerName: {
     width: '100%',
-    marginVertical: 60,
+    marginTop: 60,
+    marginBottom: 150,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -137,7 +122,7 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: '#fff',
+    borderColor: '#1DA1F2',
     color: '#fff',
     fontSize: 20,
     borderRadius: 20,
