@@ -11,6 +11,7 @@ import ProfileScreen from './screen/profile';
 import CartScreen from './screen/cart';
 import VideoDemo from './screen/videodemo';
 import SignupScreen from './screen/signup';
+import LoginScreen from './screen/login';
 import NotificationScreen from './screen/notification';
 import NotificationDetails from './screen/notificationdetails';
 
@@ -59,6 +60,9 @@ const App = () => {
         </Stack.Screen>
         <Stack.Screen name="Signup">
           {(props) => <SignupScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Login">
+          {(props) => <LoginScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

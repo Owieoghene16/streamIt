@@ -33,6 +33,20 @@ const LoginScreen = ({ navigation }) => {
                   </View>
                 </View>
               </View>
+              <View style={styles.fieldBox}>
+                <View style={styles.inputHeader}>
+                  <View style={styles.inputBox}>
+                    <TextInput 
+                      placeholder='Username'
+                      placeholderTextColor="grey" 
+                      style={styles.inputBoxText}
+                    />
+                    <Pressable style={styles.searchButton}>
+                      <Feather name="user" size={24} color="grey" />
+                    </Pressable>
+                  </View>
+                </View>
+              </View>
             </ScrollView>
           </ImageBackground>
         </View>
