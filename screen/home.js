@@ -43,7 +43,7 @@ const HomeScreen = ({ navigation }) => {
               </Pressable>
             </View>
             <View>
-              <Pressable onPress={() => navigation.navigate('VideoDemo')}>
+              <Pressable onPress={() => navigation.navigate('Signup')}>
                 <MaterialIcons name="watch-later" size={35} color="white" style={styles.cartHeader} />
                 <Text style={styles.notificationBell}>1</Text>
               </Pressable>

@@ -3,9 +3,9 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
-import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, FlatList, TouchableWithoutFeedback } from 'react-native';
 
-const VideoLoadingSkeleton = ({ navigation }) => {
+const VideoLoadingSkeleton = () => {
   const [movies, setMovies] = useState([
     {
       key: 1,
@@ -40,7 +40,6 @@ const VideoLoadingSkeleton = ({ navigation }) => {
         showsHorizontalScrollIndicator={true}
         data={movies}
         renderItem={({item}) => (
-          <TouchableOpacity onPress={() => navigation.navigate('VideoDetails')}>
           <View style={styles.videoContLoading}>
             <View style={{width: '100%', height: "100%", borderRadius: 20, backgroundColor: 'hsl(204, 8%, 86%)'}}>
             </View>
@@ -58,28 +57,27 @@ const VideoLoadingSkeleton = ({ navigation }) => {
                 </View>
               </View>
               <View style={styles.videoNameHead}>
-                <View style={{width: '100%', height: 32, borderRadius: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                <View style={{width: '100%', height: 32, borderRadius: 10, backgroundColor: 'hsl(184, 6%, 81%)'}}>
                 </View>
               </View>
               <View style={styles.info}>
-                  <View style={{width: 40, height: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                  <View style={{width: 40, height: 20, borderRadius: 5, backgroundColor: 'hsl(184, 6%, 81%)'}}>
                   </View>
-                  <View style={{width: 80, height: 20, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                  <View style={{width: 80, height: 20, borderRadius: 5, backgroundColor: 'hsl(184, 6%, 81%)'}}>
                   </View>
-                  <View style={{width: 40, height: 20, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                  <View style={{width: 40, height: 20, borderRadius: 5, backgroundColor: 'hsl(184, 6%, 81%)'}}>
                   </View>
               </View>
               <View style={styles.type}>
-                  <View style={{width: 50, height: 18, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                  <View style={{width: 50, height: 20, borderRadius: 5, backgroundColor: 'hsl(184, 6%, 81%)'}}>
                   </View>
-                  <View style={{width: 50, height: 18, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                  <View style={{width: 50, height: 20, borderRadius: 5, backgroundColor: 'hsl(184, 6%, 81%)'}}>
                   </View>
-                  <View style={{width: 50, height: 18, borderRadius: 3, backgroundColor: 'hsl(184, 6%, 81%)'}}>
+                  <View style={{width: 50, height: 20, borderRadius: 5, backgroundColor: 'hsl(184, 6%, 81%)'}}>
                   </View>
               </View>
             </View>
           </View>
-          </TouchableOpacity>
         )}
       />
       </View>
@@ -164,28 +162,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
   },
-  infoButton: {
-    fontSize: 12,
-    backgroundColor: '#333',
-    width: 40,
-    height: 20,
-    lineHeight: 20,
-    textAlign: 'center',
-    justifyContent: 'center',
-  },
-  infoButtonText: {
-    color: '#fff',
-    textAlign: 'center',
-  },
-  infoName: {
-    fontSize: 18,
-    color: 'grey',
-  },
   info: {
     width: '60%',
     flexDirection: 'row',
     justifyContent:'space-between',
     alignItems: 'center',
+    gap: 20,
+  },
+  type: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent:'space-around',
+    alignItems: 'center',
+    paddingVertical: 5,
   },
 });
 
