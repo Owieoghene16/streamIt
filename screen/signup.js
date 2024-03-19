@@ -19,12 +19,12 @@ const SignupScreen = ({ navigation }) => {
         <View style={styles.container}>
           <StatusBar
             animated={true}
-            backgroundColor="skyblue"
+            backgroundColor="darkblue"
             barStyle='default'
             showHideTransition='slide'
             hidden={false} 
           />
-          <ImageBackground source={require('../assets/johnwi.jpg')} resizeMode="cover" style={styles.imageBackground}>
+          <ImageBackground source={require('../assets/johnw.jpg')} resizeMode="cover" style={styles.imageBackground}>
             <ScrollView>
               <View style={styles.main}>
                 <View style={styles.mainHeader}>
@@ -114,7 +114,7 @@ const SignupScreen = ({ navigation }) => {
                   </View>
                   <View style={styles.loginLinkBox}>
                     <Text style={{color: '#fff', fontSize: 16, fontWeight: 'bold'}}>Have an Account?</Text>
-                    <Text style={{color: 'skyblue', fontSize: 22, fontWeight: 'bold'}}>Login</Text>
+                    <Text style={{color: '#1DA1F2', fontSize: 22, fontWeight: 'bold'}}>Login</Text>
                   </View>
                 </View>
               </View>
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   signupButton: {
     width: '100%',
     height: 50,
-    backgroundColor: 'skyblue',
+    backgroundColor: '#1DA1F2',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
