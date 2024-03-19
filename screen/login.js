@@ -12,7 +12,7 @@ import VideoLoadingSkeleton from '../components/videoloadingskeleton';
 import { RadioButton } from 'react-native-paper';
 import { StyleSheet, ImageBackground, View, Text, Image, StatusBar, Pressable, SafeAreaView, TextInput, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 
-const SignupScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(true);
   const togglePasswordField = () => setShowPassword(!showPassword);
 
@@ -32,44 +32,11 @@ const SignupScreen = ({ navigation }) => {
               <View style={styles.main}>
                 <View style={styles.mainHeader}>
                   <View style={styles.headerName}>
-                    <Text style={{color: '#fff', fontSize: 35, fontWeight: 900}}>Sign Up</Text>
-                  </View>
-                  <View style={styles.socialSignup}>
-                    <View style={styles.socialGoogle}>
-                      <Image
-                        source={{
-                          uri: 'https://cdn-icons-png.flaticon.com/512/300/300221.png',
-                        }}
-                        style={{width: 35, height: 35}}
-                      />
-                      <Text style={{color: '#000', fontSize: 21, fontWeight: 'bold'}}>Google</Text>
-                    </View>
-                    <View style={styles.socialFacebook}>
-                      <Image
-                        source={{
-                          uri: 'https://cdn-icons-png.flaticon.com/512/5968/5968764.png',
-                        }}
-                        style={{width: 35, height: 35}}
-                      />
-                      <Text style={{color: '#fff', fontSize: 21, fontWeight: 'bold'}}>Facebook</Text>
-                    </View>
+                    <Text style={{color: '#fff', fontSize: 35, fontWeight: 900}}>Login</Text>
                   </View>
                   <View style={styles.inputHeader}>
                     <View style={styles.inputBox}>
                       <TextInput 
-                        placeholder='Username'
-                        placeholderTextColor="grey" 
-                        style={styles.inputBoxText}
-                      />
-                      <Pressable style={styles.searchButton}>
-                        <Feather name="user" size={24} color="grey" />
-                      </Pressable>
-                    </View>
-                  </View>
-                  <View style={styles.inputHeader}>
-                    <View style={styles.inputBox}>
-                      <TextInput 
-                        multiline={false}
                         placeholder='Email'
                         placeholderTextColor="grey" 
                         style={styles.inputBoxText}
@@ -99,43 +66,15 @@ const SignupScreen = ({ navigation }) => {
                       </Pressable>
                     </View>
                   </View>
-                  <View style={styles.inputHeader}>
-                    <View style={styles.inputBox}>
-                      <TextInput 
-                        secureTextEntry={showPassword}
-                        placeholder='Confirm Password'
-                        placeholderTextColor="grey" 
-                        style={styles.inputBoxText}
-                      />
-                      <Pressable style={styles.searchButton}>
-                        <Entypo name="lock" size={24} color="grey" />
-                      </Pressable>
-                      <Pressable style={styles.searchButtonEnd} onPress={togglePasswordField}>
-                        {
-                          showPassword
-                          ? <AntDesign name="eyeo" size={28} color="grey" />
-                          : <Feather name="eye-off" size={24} color="grey" />
-                        }
-                      </Pressable>
-                    </View>
-                  </View>
-                  <View style={styles.signupBox}>
-                    <RadioButton
-                      value="first"
-                      status='checked'
-                      color='skyblue'
-                    />
-                    <Text style={styles.signupButtonText}>Remember Me</Text>
-                  </View>
                   <View style={styles.signupBox}>
                     <Pressable style={styles.signupButton} onPress={() => navigation.navigate('Home')}>
-                      <Text style={styles.signupButtonText}>Sign Up</Text>
+                      <Text style={styles.signupButtonText}>Login</Text>
                     </Pressable>
                   </View>
                   <View style={styles.loginLinkBox}>
-                    <Text style={{color: '#fff', fontSize: 16, fontWeight: 'bold'}}>Have an Account?</Text>
-                    <Pressable onPress={() => navigation.navigate('Login')}>     
-                      <Text style={{color: '#1DA1F2', fontSize: 22, fontWeight: 'bold'}}>Login</Text>
+                    <Text style={{color: '#fff', fontSize: 16, fontWeight: 'bold'}}>Don't have an Account?</Text>
+                    <Pressable onPress={() => navigation.navigate('Signup')}>     
+                      <Text style={{color: '#1DA1F2', fontSize: 22, fontWeight: 'bold'}}>Signup</Text>
                     </Pressable>
                   </View>
                 </View>
@@ -166,6 +105,10 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   mainHeader: {
+    width: '100%',
+    marginVertical: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingHorizontal: 7,
     flexDirection: 'column',
     borderRadius: 20,
@@ -173,7 +116,8 @@ const styles = StyleSheet.create({
   },
   headerName: {
     width: '100%',
-    marginVertical: 60,
+    marginTop: 60,
+    marginBottom: 150,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -182,6 +126,7 @@ const styles = StyleSheet.create({
   },
   inputBox: {
     width: '100%',
+    position: 'relative',
   },
   inputBoxText: {
     width: '100%',
@@ -199,14 +144,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 12,
     top: 12,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  searchButtonEnd: {
-    position: 'absolute',
-    right: 12,
-    top: 10,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -263,6 +200,14 @@ const styles = StyleSheet.create({
     gap: 10,
     backgroundColor: '#1DA1F2',
   },
+  searchButtonEnd: {
+    position: 'absolute',
+    right: 12,
+    top: 10,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
-export default SignupScreen;
+export default LoginScreen;
