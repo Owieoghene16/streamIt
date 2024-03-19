@@ -13,6 +13,8 @@ import { RadioButton } from 'react-native-paper';
 import { StyleSheet, ImageBackground, View, Text, Image, StatusBar, Pressable, SafeAreaView, TextInput, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 
 const SignupScreen = ({ navigation }) => {
+  const [showPassword, setShowPassword] = useState(true);
+  const togglePasswordField = () => setShowPassword(!showPassword);
   return (
     <>
       <SafeAreaView style={{ flex: 1 }}>
@@ -66,6 +68,7 @@ const SignupScreen = ({ navigation }) => {
                   <View style={styles.inputHeader}>
                     <View style={styles.inputBox}>
                       <TextInput 
+                        multiline={false}
                         placeholder='Email'
                         placeholderTextColor="grey" 
                         style={styles.inputBoxText}
@@ -78,6 +81,7 @@ const SignupScreen = ({ navigation }) => {
                   <View style={styles.inputHeader}>
                     <View style={styles.inputBox}>
                       <TextInput 
+                        secureTextEntry={showPassword}
                         placeholder='Password'
                         placeholderTextColor="grey" 
                         style={styles.inputBoxText}
@@ -85,17 +89,32 @@ const SignupScreen = ({ navigation }) => {
                       <Pressable style={styles.searchButton}>
                         <Entypo name="lock" size={24} color="grey" />
                       </Pressable>
+                      <Pressable style={styles.searchButtonEnd} onPress={togglePasswordField}>
+                        {
+                          showPassword
+                          ? <AntDesign name="eyeo" size={28} color="grey" />
+                          : <Feather name="eye-off" size={24} color="grey" />
+                        }
+                      </Pressable>
                     </View>
                   </View>
                   <View style={styles.inputHeader}>
                     <View style={styles.inputBox}>
                       <TextInput 
+                        secureTextEntry={showPassword}
                         placeholder='Confirm Password'
                         placeholderTextColor="grey" 
                         style={styles.inputBoxText}
                       />
                       <Pressable style={styles.searchButton}>
                         <Entypo name="lock" size={24} color="grey" />
+                      </Pressable>
+                      <Pressable style={styles.searchButtonEnd} onPress={togglePasswordField}>
+                        {
+                          showPassword
+                          ? <AntDesign name="eyeo" size={28} color="grey" />
+                          : <Feather name="eye-off" size={24} color="grey" />
+                        }
                       </Pressable>
                     </View>
                   </View>
@@ -162,7 +181,6 @@ const styles = StyleSheet.create({
   },
   inputBox: {
     width: '100%',
-    position: 'relative',
   },
   inputBoxText: {
     width: '100%',
@@ -180,6 +198,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 12,
     top: 12,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  searchButtonEnd: {
+    position: 'absolute',
+    right: 12,
+    top: 10,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
