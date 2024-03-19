@@ -19,7 +19,7 @@ const SignupScreen = ({ navigation }) => {
         <View style={styles.container}>
           <StatusBar
             animated={true}
-            backgroundColor="darkblue"
+            backgroundColor="#000"
             barStyle='default'
             showHideTransition='slide'
             hidden={false} 
@@ -108,13 +108,15 @@ const SignupScreen = ({ navigation }) => {
                     <Text style={styles.signupButtonText}>Remember Me</Text>
                   </View>
                   <View style={styles.signupBox}>
-                    <Pressable style={styles.signupButton}>
+                    <Pressable style={styles.signupButton} onPress={() => navigation.navigate('Home')}>
                       <Text style={styles.signupButtonText}>Sign Up</Text>
                     </Pressable>
                   </View>
                   <View style={styles.loginLinkBox}>
                     <Text style={{color: '#fff', fontSize: 16, fontWeight: 'bold'}}>Have an Account?</Text>
-                    <Text style={{color: '#1DA1F2', fontSize: 22, fontWeight: 'bold'}}>Login</Text>
+                    <Pressable onPress={() => navigation.navigate('Login')}>     
+                      <Text style={{color: '#1DA1F2', fontSize: 22, fontWeight: 'bold'}}>Login</Text>
+                    </Pressable>
                   </View>
                 </View>
               </View>
