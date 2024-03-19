@@ -13,6 +13,9 @@ import { RadioButton } from 'react-native-paper';
 import { StyleSheet, ImageBackground, View, Text, Image, StatusBar, Pressable, SafeAreaView, TextInput, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 
 const LoginScreen = ({ navigation }) => {
+  const [showPassword, setShowPassword] = useState(true);
+  const togglePasswordField = () => setShowPassword(!showPassword);
+
   return (
     <>
       <SafeAreaView style={{ flex: 1 }}>
@@ -46,12 +49,20 @@ const LoginScreen = ({ navigation }) => {
                   <View style={styles.inputHeader}>
                     <View style={styles.inputBox}>
                       <TextInput 
+                        secureTextEntry={showPassword}
                         placeholder='Password'
                         placeholderTextColor="grey" 
                         style={styles.inputBoxText}
                       />
                       <Pressable style={styles.searchButton}>
                         <Entypo name="lock" size={24} color="grey" />
+                      </Pressable>
+                      <Pressable style={styles.searchButtonEnd} onPress={togglePasswordField}>
+                        {
+                          showPassword
+                          ? <AntDesign name="eyeo" size={28} color="grey" />
+                          : <Feather name="eye-off" size={24} color="grey" />
+                        }
                       </Pressable>
                     </View>
                   </View>
@@ -188,6 +199,14 @@ const styles = StyleSheet.create({
     height: 50,
     gap: 10,
     backgroundColor: '#1DA1F2',
+  },
+  searchButtonEnd: {
+    position: 'absolute',
+    right: 12,
+    top: 10,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

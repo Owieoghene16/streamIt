@@ -15,6 +15,7 @@ import { StyleSheet, ImageBackground, View, Text, Image, StatusBar, Pressable, S
 const SignupScreen = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(true);
   const togglePasswordField = () => setShowPassword(!showPassword);
+
   return (
     <>
       <SafeAreaView style={{ flex: 1 }}>
